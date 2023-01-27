@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(./bg-pattern-top.svg);
+    background-image: url(./bg-pattern-bottom.svg);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 450px;
+    height: 480px;
+    background-color: black;
+}
+
+.container .bgCard img {
+    width: 100%;
+}
