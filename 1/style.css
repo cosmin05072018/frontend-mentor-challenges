@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: hsl(217, 54%, 11%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.container {
+    width: 370px;
+    height: 600px;
+    background-color: hsl(216, 50%, 16%);
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.35) 15px 29px 15px;
+}
+
+.imgCard img {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+}
+
+.ETH-time {
+    display: flex;
+}
+
+.content {
+    margin-top: 16px;
+}
+
+.content .description {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.content .ETH-time {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.content .ETH-time .ETH {
+    width: 50%;
+}
+
+.content .ETH-time .ETH p {
+    display: inline;
+}
+
+.content .ETH-time .time p {
+    display: inline;
+}
+
+.content .ETH-time .time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bar {
+    background-color: #fff;
+    width: 100%;
+    height: 1px;
+    margin-top: 50px;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.footer .avatar img {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    margin-right: 20px;
+}
