@@ -161,3 +161,16 @@ body {
     justify-content: space-between;
     width: 100%;
 }
+
+@media(max-width:375px) {
+    .container {
+        height: 850px;
+        padding: 10px 5px;
+    }
+    .content-Notifications .privateMessage {
+        margin-top: 20px;
+    }
+    .notification .imgChess img {
+        margin-left: 12px;
+    }
+}
