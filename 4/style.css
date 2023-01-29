@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&family=Fraunces:opsz,wght@9..144,100;9..144,700&family=Kumbh+Sans:wght@400;700;800&family=Lexend+Deca&family=Outfit:wght@100;200;300&family=Plus+Jakarta+Sans:wght@500;800&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(210, 60%, 98%);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.container {
+    width: 640px;
+    height: 780px;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 12px;
+    padding: 25px 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.container .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container .top .notificationsAndNumber {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .top .notifications {
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.container .top .btn-markRead button {
+    border: none;
+    background-color: hsl(210, 60%, 98%);
+    color: hsl(219, 12%, 42%);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.container .notification {
+    width: 100%;
+    height: 60px;
+    border-radius: 12px;
+    margin-top: 30px;
+    display: flex;
+    padding: 12px;
+    cursor: pointer;
+}
+
+.notRead {
+    background-color: hsl(210, 60%, 98%);
+}
+
+#number {
+    background-color: hsl(219, 85%, 26%);
+    color: #fff;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.newNotificationRed {
+    border-radius: 50%;
+    width: 6px;
+    height: 6px;
+    background-color: hsl(1, 90%, 64%);
+    margin-left: 10px;
+    display: inline;
+    position: absolute;
+    margin-top: 7px;
+}
+
+.notification .imageAvatar img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.notification .imageAvatar {
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+}
+
+.notification .textNotification {
+    margin-left: 16px;
+}
+
+.notification .textNotification p {
+    font-size: 14px;
+    color: hsl(219, 12%, 42%);
+}
+
+.notification .textNotification .name {
+    font-weight: bold;
+    margin-right: 5px;
+    color: black;
+}
+
+.notification .textNotification .name:hover {
+    color: hsl(219, 85%, 26%);
+    font-weight: bold;
+}
+
+.notification .textNotification .recentPost {
+    font-weight: bold;
+    margin-left: 5px;
+    color: hsl(219, 12%, 42%);
+}
+
+.notification .textNotification .recentPost:hover {
+    color: hsl(219, 85%, 26%);
+    font-weight: bold;
+}
+
+.notification .textNotification .time {
+    color: hsl(219, 14%, 63%);
+}
+
+.notification .textNotification .chess {
+    color: hsl(219, 85%, 26%);
+    font-weight: 800;
+    margin-left: 5px;
+}
+
+.content-Notifications .privateMessage {
+    border: 1px solid hsl(219, 14%, 63%);
+    margin-left: 87px;
+    padding: 20px;
+    font-size: 14px;
+    border-radius: 6px;
+    color: hsl(219, 12%, 42%);
+}
+
+.content-Notifications .privateMessage:hover {
+    background-color: hsl(211, 68%, 94%);
+    border: 1px solid hsl(211, 68%, 94%);
+}
+
+.notification .imgChess img {
+    width: 45px;
+    height: 45px;
+}
+
+.notification .textImg {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
