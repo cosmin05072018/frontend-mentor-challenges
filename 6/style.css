@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&family=Fraunces:opsz,wght@9..144,100;9..144,700&family=Karla:wght@400;700&family=Kumbh+Sans:wght@400;700;800&family=Lexend+Deca&family=Outfit:wght@100;200;300&family=Plus+Jakarta+Sans:wght@500;800&family=Rubik:wght@400;500;700&display=swap');
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100%;
+    background-color: hsl(228, 33%, 97%);
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    width: 750px;
+    margin-top: 55px;
+    padding: 12px;
+}
+
+.container .content {
+    display: flex;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 10px;
+}
+
+.content .left .button {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 8px;
+    border-radius: 8px;
+    background-color: hsl(228, 33%, 97%);
+}
+
+.content .left.button .increment,
+.content .left.button .decrement {
+    color: hsl(211, 10%, 45%);
+    font-weight: 700;
+}
+
+.content .left .button button {
+    border: none;
+    cursor: pointer;
+    background-color: hsl(228, 33%, 97%);
+}
+
+.content .left .button .number {
+    color: hsl(238, 40%, 52%);
+    font-weight: 800;
+    text-align: center;
+}
+
+.content .right {
+    width: 100%;
+    margin-left: 15px;
+}
+
+.content .right .top {
+    display: flex;
+}
+
+.content .right .top img {
+    height: 35px;
+}
+
+.content .right .top .info {
+    width: 100%;
+    display: flex;
+}
+
+.content .right .top .info p {
+    margin-left: 15px;
+    display: inline;
+}
+
+.content .right .top .info .nameAvatar {
+    color: hsl(212, 24%, 26%);
+    font-weight: bold;
+}
+
+.content .right .top .replyes {
+    display: flex;
+}
+
+.content .right .top .replyes img {
+    height: 50%;
+}
+
+.content .right .top .replyes .reply {
+    color: hsl(238, 40%, 52%);
+    font-weight: bold;
+}
+
+.content .right .top .info .time,
+.content .right .top .info .time {
+    color: hsl(211, 10%, 45%);
+}
+
+.content .right .bottom .text {
+    color: hsl(211, 10%, 45%);
+}
+
+
+/*
+.content .comment {
+    width: 100%;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 8px;
+    display: flex;
+    padding: 20px 15px;
+}
+
+.content .comment .vote {
+    display: flex;
+    align-items: center;
+}
+
+.container .comment .infoAndText {
+    margin-left: 25px;
+}
+
+.content .comment .button {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 8px;
+    border-radius: 8px;
+    background-color: hsl(228, 33%, 97%);
+}
+
+.content .comment .button .increment,
+.content .comment .button .decrement {
+    color: hsl(211, 10%, 45%);
+    font-weight: 700;
+}
+
+.content .comment .button .number {
+    color: hsl(238, 40%, 52%);
+    font-weight: 800;
+    text-align: center;
+}
+
+.content .comment .button button {
+    border: none;
+    cursor: pointer;
+    background-color: hsl(228, 33%, 97%);
+}
+
+.content .comment .info {
+    display: flex;
+}
+
+.content .comment .infoAndText .info img {
+    height: 25%;
+}

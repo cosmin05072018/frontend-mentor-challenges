@@ -106,4 +106,6 @@ body {
     background-color: hsl(71, 73%, 54%);
     color: #fff;
     font-weight: 800;
+    border-radius: 6px;
+    box-shadow: rgb(8 65 122 / 57%) 0px 8px 24px;
 }
