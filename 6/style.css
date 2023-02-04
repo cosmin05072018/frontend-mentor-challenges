@@ -8,17 +8,25 @@ body {
     background-color: hsl(228, 33%, 97%);
     font-family: 'Rubik', sans-serif;
     font-size: 16px;
-}
-
-.container {
     display: flex;
     justify-content: center;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    width: 660px;
+}
+
 .content {
-    width: 750px;
-    margin-top: 55px;
+    margin-top: 15px;
     padding: 12px;
+}
+
+.content .left {
+    display: flex;
+    align-items: center;
 }
 
 .container .content {
@@ -45,6 +53,10 @@ body {
     border: none;
     cursor: pointer;
     background-color: hsl(228, 33%, 97%);
+    color: hsl(211, 10%, 45%);
+    font-weight: bolder;
+    font-size: 16px;
+    opacity: 0.6;
 }
 
 .content .left .button .number {
@@ -54,12 +66,13 @@ body {
 }
 
 .content .right {
-    width: 100%;
+    width: 600px;
     margin-left: 15px;
 }
 
 .content .right .top {
     display: flex;
+    justify-content: space-between;
 }
 
 .content .right .top img {
@@ -83,15 +96,17 @@ body {
 
 .content .right .top .replyes {
     display: flex;
+    align-items: center;
 }
 
 .content .right .top .replyes img {
-    height: 50%;
+    height: 12px;
+    margin-right: 8px;
 }
 
 .content .right .top .replyes .reply {
     color: hsl(238, 40%, 52%);
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .content .right .top .info .time,
@@ -103,55 +118,41 @@ body {
     color: hsl(211, 10%, 45%);
 }
 
-
-/*
-.content .comment {
-    width: 100%;
-    background-color: hsl(0, 0%, 100%);
-    border-radius: 8px;
-    display: flex;
-    padding: 20px 15px;
+.container .replySection .replyContent {
+    border-left: 2px solid hsla(211, 10%, 45%, 0.1);
+    margin-left: 30px;
+    padding-left: 25px;
 }
 
-.content .comment .vote {
-    display: flex;
-    align-items: center;
-}
-
-.container .comment .infoAndText {
-    margin-left: 25px;
-}
-
-.content .comment .button {
-    display: flex;
-    flex-direction: column;
-    padding: 12px 8px;
-    border-radius: 8px;
-    background-color: hsl(228, 33%, 97%);
-}
-
-.content .comment .button .increment,
-.content .comment .button .decrement {
-    color: hsl(211, 10%, 45%);
+.container .replySection .replyContent .bottom .text .nameToReply {
+    color: hsl(238, 40%, 52%);
     font-weight: 700;
 }
 
-.content .comment .button .number {
-    color: hsl(238, 40%, 52%);
-    font-weight: 800;
-    text-align: center;
+.container .replySection .replyContent .content .right .top .info .you {
+    color: #fff;
+    background-color: hsl(238, 40%, 52%);
+    padding: 3px 5px;
+    font-size: 12px;
+    margin-left: 10px;
 }
 
-.content .comment .button button {
-    border: none;
-    cursor: pointer;
-    background-color: hsl(228, 33%, 97%);
+.container .addcomment {
+    background-color: hsl(0, 0%, 100%);
+    padding: 20px;
+    margin-top: 15px;
 }
 
-.content .comment .info {
+.container .addcomment .sectionComment {
     display: flex;
+    width: 100%;
 }
 
-.content .comment .infoAndText .info img {
-    height: 25%;
+.container .addcomment .inputComment {
+    padding-bottom: 80px;
+    width: 100%;
+}
+
+.container .addcomment .rightImageAvatar img {
+    height: 40px;
 }
