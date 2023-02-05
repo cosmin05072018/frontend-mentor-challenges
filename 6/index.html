@@ -14,9 +14,9 @@
         <div class="content">
             <div class="left">
                 <div class="button">
-                    <button class="increment">+</button>
+                    <button class="increment"><img src="./icon-plus.svg" alt="icon-plus"></button>
                     <span class="number">12</span>
-                    <button class="decrement">-</button>
+                    <button class="decrement"><img src="./icon-minus.svg" alt="icon-minus"></button>
                 </div>
             </div>
             <div class="right">
@@ -41,9 +41,9 @@
         <div class="content">
             <div class="left">
                 <div class="button">
-                    <button class="increment">+</button>
+                    <button class="increment"><img src="./icon-plus.svg" alt="icon-plus"></button>
                     <span class="number">5</span>
-                    <button class="decrement">-</button>
+                    <button class="decrement"><img src="./icon-minus.svg" alt="icon-minus"></button>
                 </div>
             </div>
             <div class="right">
@@ -69,9 +69,9 @@
                 <div class="content">
                     <div class="left">
                         <div class="button">
-                            <button class="increment">+</button>
+                            <button class="increment"><img src="./icon-plus.svg" alt="icon-plus"></button>
                             <span class="number">4</span>
-                            <button class="decrement">-</button>
+                            <button class="decrement"><img src="./icon-minus.svg" alt="icon-minus"></button>
                         </div>
                     </div>
                     <div class="right">
@@ -95,9 +95,9 @@
                 <div class="content">
                     <div class="left">
                         <div class="button">
-                            <button class="increment">+</button>
+                            <button class="increment"><img src="./icon-plus.svg" alt="icon-plus"></button>
                             <span class="number">4</span>
-                            <button class="decrement">-</button>
+                            <button class="decrement"><img src="./icon-minus.svg" alt="icon-minus"></button>
                         </div>
                     </div>
                     <div class="right">
@@ -105,11 +105,13 @@
                             <div class="info">
                                 <img src="./image-juliusomo.png" alt="image-juliusomo">
                                 <p class="nameAvatar">juliusomo <span class="you">you</span></p>
-                                <p class="time">1 week ago</p>
+                                <p class="time">2 days ago</p>
                             </div>
-                            <div class="replyes">
-                                <img src="./icon-reply.svg" alt="icon-reply">
-                                <span class="reply">Reply</span>
+                            <div class="deleteEdit">
+                                <div class="delete">
+                                    <img src="./icon-delete.svg" alt="icon-delete"> <span>Delete</span>
+                                </div>
+                                <div class="edit"><img src="./icon-edit.svg" alt="icon-edit"> <span>Edit</span></div>
                             </div>
                         </div>
                         <div class="bottom">
@@ -123,11 +125,22 @@
         <div class="addcomment">
             <div class="sectionComment">
                 <div class="rightImageAvatar"><img src="./image-juliusomo.png" alt=""></div>
-                <input class="inputComment" type="text" placeholder="Add a comment">
+                <input class="inputComment" type="text" placeholder="Add a comment...">
                 <button class="sendComment">SEND</button>
             </div>
         </div>
+        <div class="modal">
+            <div class="contentModal">
+                <h2 class="title">Delete comment</h2>
+                <p class="text">Are you sure you want to delete this comment? This will remove the comment and can't be undeone.</p>
+                <div class="btn">
+                    <div class="btnCancel"><button>NO, CANCEL</button></div>
+                    <div class="btnDelete"><button>YES, DELETE</button></div>
+                </div>
+            </div>
+        </div>
     </div>
+
 </body>
 
 </html>

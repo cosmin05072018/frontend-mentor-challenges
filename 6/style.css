@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&family=Fraunces:opsz,wght@9..144,100;9..144,700&family=Karla:wght@400;700&family=Kumbh+Sans:wght@400;700;800&family=Lexend+Deca&family=Outfit:wght@100;200;300&family=Plus+Jakarta+Sans:wght@500;800&family=Rubik:wght@400;500;700&display=swap');
-body {
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+body {
     height: 100vh;
     width: 100%;
     background-color: hsl(228, 33%, 97%);
@@ -16,17 +19,12 @@ body {
     display: flex;
     flex-direction: column;
     margin-top: 25px;
-    width: 660px;
+    width: 680px;
 }
 
 .content {
     margin-top: 15px;
     padding: 12px;
-}
-
-.content .left {
-    display: flex;
-    align-items: center;
 }
 
 .container .content {
@@ -43,30 +41,25 @@ body {
     background-color: hsl(228, 33%, 97%);
 }
 
-.content .left.button .increment,
-.content .left.button .decrement {
-    color: hsl(211, 10%, 45%);
-    font-weight: 700;
+.content .left .button .increment,
+.content .left .button .decrement {
+    background-color: hsl(228, 33%, 97%);
 }
 
 .content .left .button button {
     border: none;
     cursor: pointer;
-    background-color: hsl(228, 33%, 97%);
-    color: hsl(211, 10%, 45%);
-    font-weight: bolder;
     font-size: 16px;
-    opacity: 0.6;
 }
 
 .content .left .button .number {
     color: hsl(238, 40%, 52%);
     font-weight: 800;
     text-align: center;
+    padding: 10px 0;
 }
 
 .content .right {
-    width: 600px;
     margin-left: 15px;
 }
 
@@ -82,6 +75,7 @@ body {
 .content .right .top .info {
     width: 100%;
     display: flex;
+    align-items: center;
 }
 
 .content .right .top .info p {
@@ -102,11 +96,13 @@ body {
 .content .right .top .replyes img {
     height: 12px;
     margin-right: 8px;
+    cursor: pointer;
 }
 
 .content .right .top .replyes .reply {
     color: hsl(238, 40%, 52%);
     font-weight: 600;
+    cursor: pointer;
 }
 
 .content .right .top .info .time,
@@ -139,20 +135,122 @@ body {
 
 .container .addcomment {
     background-color: hsl(0, 0%, 100%);
-    padding: 20px;
-    margin-top: 15px;
+    padding: 10px;
+    margin-top: 12px;
+    border-radius: 10px;
 }
 
 .container .addcomment .sectionComment {
     display: flex;
     width: 100%;
+    margin-top: 15px;
 }
 
 .container .addcomment .inputComment {
-    padding-bottom: 80px;
-    width: 100%;
+    padding: 20px 0px 55px 20px;
+    width: 75%;
+    border: 2px solid hsla(211, 10%, 45%, 0.1);
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.container .addcomment .inputComment::placeholder {
+    color: hsl(211, 10%, 45%);
+    font-size: 16px;
 }
 
 .container .addcomment .rightImageAvatar img {
     height: 40px;
+}
+
+.container .addcomment .rightImageAvatar {
+    margin-right: 8px;
+}
+
+.container .addcomment .sendComment {
+    margin-left: 15px;
+    height: 100%;
+    padding: 15px 30px;
+    color: hsl(0, 0%, 100%);
+    background-color: hsl(238, 40%, 52%);
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.replySection .replyContent .content .right .top .deleteEdit {
+    display: flex;
+}
+
+.replySection .replyContent .content .right .top .deleteEdit .delete,
+.replySection .replyContent .content .right .top .deleteEdit .edit {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.replySection .replyContent .content .right .top .deleteEdit .delete img,
+.replySection .replyContent .content .right .top .deleteEdit .edit img {
+    height: 12px;
+    margin-right: 8px;
+}
+
+.replySection .replyContent .content .right .top .deleteEdit .delete {
+    color: hsl(358, 79%, 66%);
+}
+
+.replySection .replyContent .content .right .top .deleteEdit .edit {
+    margin-left: 25px;
+    color: hsl(238, 40%, 52%);
+}
+
+
+/* MODAL*/
+
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contentModal {
+    background-color: hsl(0, 0%, 100%);
+    padding: 30px;
+    width: 350px;
+    border-radius: 10px;
+}
+
+.contentModal .title {
+    margin-bottom: 20px;
+}
+
+.contentModal .text {
+    color: hsl(211, 10%, 45%);
+}
+
+.contentModal .btn {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contentModal .btn .btnCancel button {
+    background-color: hsl(211, 10%, 45%);
+    color: hsl(0, 0%, 100%);
+    border: none;
+}
+
+.contentModal .btn .btnDelete button {
+    background-color: hsl(358, 79%, 66%);
+    color: hsl(0, 0%, 100%);
+}
+
+.contentModal .btn button {
+    border: none;
+    padding: 12px 28px;
+    margin-top: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
 }
