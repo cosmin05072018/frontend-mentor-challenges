@@ -18,22 +18,24 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    margin-top: 25px;
     width: 680px;
 }
 
 .content {
-    margin-top: 15px;
+    margin-top: 10px;
     padding: 12px;
-}
-
-.container .content {
     display: flex;
-    background-color: hsl(0, 0%, 100%);
-    border-radius: 10px;
+    flex-direction: column;
 }
 
-.content .left .button {
+.container .content .commentContainner {
+    display: flex;
+    border-radius: 10px;
+    padding: 12px;
+    background-color: hsl(0, 0%, 100%);
+}
+
+.content .commentContainner .left .button {
     display: flex;
     flex-direction: column;
     padding: 12px 8px;
@@ -41,76 +43,76 @@ body {
     background-color: hsl(228, 33%, 97%);
 }
 
-.content .left .button .increment,
-.content .left .button .decrement {
+.content .commentContainner .left .button .increment,
+.content .commentContainner .left .button .decrement {
     background-color: hsl(228, 33%, 97%);
 }
 
-.content .left .button button {
+.content .commentContainner .left .button button {
     border: none;
     cursor: pointer;
     font-size: 16px;
 }
 
-.content .left .button .number {
+.content .commentContainner .left .button .number {
     color: hsl(238, 40%, 52%);
     font-weight: 800;
     text-align: center;
     padding: 10px 0;
 }
 
-.content .right {
+.content .commentContainner .right {
     margin-left: 15px;
 }
 
-.content .right .top {
+.content .commentContainner .right .top {
     display: flex;
     justify-content: space-between;
 }
 
-.content .right .top img {
+.content .commentContainner .right .top img {
     height: 35px;
 }
 
-.content .right .top .info {
+.content .commentContainner .right .top .info {
     width: 100%;
     display: flex;
     align-items: center;
 }
 
-.content .right .top .info p {
+.content .commentContainner .right .top .info p {
     margin-left: 15px;
     display: inline;
 }
 
-.content .right .top .info .nameAvatar {
+.content .commentContainner .right .top .info .nameAvatar {
     color: hsl(212, 24%, 26%);
     font-weight: bold;
 }
 
-.content .right .top .replyes {
+.content .commentContainner .right .top .replyes {
     display: flex;
     align-items: center;
 }
 
-.content .right .top .replyes img {
+.content .commentContainner .right .top .replyes img {
     height: 12px;
     margin-right: 8px;
     cursor: pointer;
 }
 
-.content .right .top .replyes .reply {
+.content .commentContainner .right .top .replyes .reply {
     color: hsl(238, 40%, 52%);
     font-weight: 600;
     cursor: pointer;
 }
 
-.content .right .top .info .time,
-.content .right .top .info .time {
+.content .commentContainner .right .top .info .time,
+.content .commentContainner .right .top .info .time {
     color: hsl(211, 10%, 45%);
 }
 
-.content .right .bottom .text {
+.content .commentContainner .right .bottom .text {
     color: hsl(211, 10%, 45%);
 }
 
@@ -120,12 +122,12 @@ body {
     padding-left: 25px;
 }
 
-.container .replySection .replyContent .bottom .text .nameToReply {
+.container .replySection .replyContent .commentContainner .bottom .text .nameToReply {
     color: hsl(238, 40%, 52%);
     font-weight: 700;
 }
 
-.container .replySection .replyContent .content .right .top .info .you {
+.container .replySection .replyContent .content .commentContainner .right .top .info .you {
     color: #fff;
     background-color: hsl(238, 40%, 52%);
     padding: 3px 5px;
@@ -177,6 +179,10 @@ body {
     border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
+}
+
+.container .addcomment .sendComment:hover {
+    background-color: hsla(238, 40%, 52%, 0.5);
 }
 
 .replySection .replyContent .content .right .top .deleteEdit {
@@ -259,4 +265,27 @@ body {
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
+}
+
+
+/* Reply content */
+
+.comment {
+    background-color: hsl(0, 0%, 100%);
+    padding: 10px;
+    margin-top: 12px;
+    border-radius: 10px;
+}
+
+.comment .replyComment {
+    padding: 20px 0px 55px 20px;
+    width: 75%;
+    border: 2px solid hsla(211, 10%, 45%, 0.1);
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.disabled {
+    pointer-events: none;
+    cursor: default;
 }
