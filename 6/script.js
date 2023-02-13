@@ -80,7 +80,54 @@ reply.forEach((item) => {
             </div>
             </div>
         </div>`;
-
+            item.classList.remove('disabled');
         })
     })
+})
+
+
+//butonul de adaugare comentariu
+
+const sendBtn = document.querySelector('.sendComment'); //preluam butonul 
+
+
+sendBtn.addEventListener('click', () => {
+    const addCommentInput = document.querySelector('.inputComment').value; //preluam valoarea din input
+    if (!addCommentInput) {
+        alert('Please enter a comment');
+    } else {
+        console.log(addCommentInput);
+        const parentElement = document.querySelector('.replySection');
+        const newElement = document.createElement('div');
+        newElement.innerHTML = `<div class="content">
+        <div class="commentContainner">
+            <div class="left">
+                <div class="button">
+                    <button class="increment"><img src="./icon-plus.svg" alt="icon-plus"></button>
+                    <span class="number">12</span>
+                    <button class="decrement"><img src="./icon-minus.svg" alt="icon-minus"></button>
+                </div>
+            </div>
+            <div class="right">
+                <div class="top">
+                    <div class="info">
+                    <img src="./image-juliusomo.png" alt="image-juliusomo">
+                    <p class="nameAvatar">juliusomo <span class="you">you</span></p>
+                    <p class="time">now</p>
+                    </div>
+                    <div class="replyes">
+                        <img src="./icon-reply.svg" alt="icon-reply">
+                        <span class="reply">Reply</span>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <p class="text"> ${addCommentInput}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>`
+        parentElement.appendChild(newElement);
+    }
 })
