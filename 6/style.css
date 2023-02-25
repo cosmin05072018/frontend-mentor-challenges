@@ -39,7 +39,7 @@ body {
     display: flex;
     flex-direction: column;
     padding: 12px 8px;
-    border-radius: 8px;
+    border-radius: 12px;
     background-color: hsl(228, 33%, 97%);
 }
 
@@ -290,4 +290,46 @@ body {
 .disabled {
     pointer-events: none;
     cursor: default;
+}
+
+@media (max-width: 375px) {
+    .container {
+        width: 372px;
+    }
+    .content .commentContainner {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .content .commentContainner .left {
+        display: flex;
+        justify-content: center;
+        width: 25%;
+    }
+    .content .commentContainner .left .button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0 8px;
+    }
+    .content .commentContainner .left .button img {
+        display: flex;
+        align-items: center;
+    }
+    .content .commentContainner .left .button .number {
+        margin: 0 16px;
+    }
+    .container .replySection .replyContent {
+        padding: 0;
+        margin-left: 10px;
+    }
+    .content .commentContainner .right {
+        margin: 0;
+    }
+    .content .commentContainner .right .top {
+        display: flex;
+        flex-direction: column;
+    }
+    .content .commentContainner .right .top .info {
+        margin-bottom: 16px;
+    }
 }
