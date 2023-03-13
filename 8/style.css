@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&family=Fraunces:opsz,wght@9..144,100;9..144,700&family=Hanken+Grotesk:wght@500;700;800&family=Karla:wght@400;700&family=Kumbh+Sans:wght@400;700;800&family=League+Spartan:wght@400;500;600;700;800&family=Lexend+Deca&family=Outfit:wght@100;200;300&family=Plus+Jakarta+Sans:wght@500;800&family=Poppins:wght@400;500;600;700&family=Rubik:wght@400;500;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'League Spartan', sans-serif;
+}
+
+:root {
+    --veryDarkMagenta: hsl(300, 43%, 22%);
+    --softPink: hsl(333, 80%, 67%);
+    --darkGrayishMagenta: hsl(303, 10%, 53%);
+    --lightGrayishMagenta: hsl(300, 24%, 96%);
+    --white: hsl(0, 0%, 100%);
+}
+
+.container {
+    height: 100vh;
+    width: 100%;
+    padding-left: 200px;
+    padding-top: 200px;
+}
+
+.container .top .left h1 {
+    color: var(--veryDarkMagenta);
+    font-size: 56px;
+}
+
+.container .top .left p {
+    color: var(--darkGrayishMagenta);
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 25px;
+}
+
+.container .top .left {
+    width: 750px;
+}
+
+.container .top {
+    display: flex;
+}
+
+.container .top .right {
+    width: 100%;
+}
+
+.container .top .right .rated {
+    display: flex;
+    background-color: var(--lightGrayishMagenta);
+    padding: 18px 20px;
+    border-radius: 8px;
+    margin-top: 12px;
+    margin-left: 100px;
+    justify-content: space-around;
+    width: 35%;
+}
+
+.container .top .right .rated p {
+    color: var(--veryDarkMagenta);
+    font-weight: 700;
+    margin-left: 24px;
+}
+
+.container .top .right .rated:nth-child(2) {
+    margin-left: 140px;
+}
+
+.container .top .right .rated:nth-child(3) {
+    margin-left: 180px;
+}
+
+.container .bottom {
+    margin-top: 30px;
+    display: flex;
+}
+
+.container .bottom .card {
+    background-color: var(--veryDarkMagenta);
+    width: 330px;
+    padding: 24px;
+    border-radius: 12px;
+}
+
+.container .bottom .card .details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.container .bottom .card .details .user {
+    margin-left: 18px;
+}
+
+.container .bottom .card .details .user .author {
+    color: var(--white);
+    font-weight: 700;
+}
+
+.container .bottom .card .details .user .verified {
+    color: var(--softPink);
+}
+
+.container .bottom .card .text {
+    color: var(--white);
+}
+
+.container .bottom .card .details img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.container .bottom .card:nth-child(2),
+.container .bottom .card:nth-child(3) {
+    margin-left: 35px;
+}
