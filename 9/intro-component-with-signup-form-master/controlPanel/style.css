@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --red: hsla(0, 100%, 74%, 0.879);
+    --green: hsl(154, 59%, 51%);
+    --blue: hsl(248, 32%, 49%);
+    --lightBlue: hsl(208, 100%, 51%);
+    ;
+    --darkBlue: hsl(249, 10%, 26%);
+    --grayishBlue: hsl(246, 25%, 77%);
+    --white: hsl(0, 0%, 100%);
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+}
+
+.container .navigator {
+    background-color: var(--darkBlue);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 34px;
+    border-bottom: 3px solid var(--white);
+}
+
+.container .navigator .icons {
+    display: flex;
+    align-items: center;
+}
+
+.container .navigator .icons ion-icon {
+    margin: 0 12px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.container .navigator .icons a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+}
+
+.container .navigator .icons a:hover {
+    font-weight: 800;
+}
+
+.container .navigator .icons input {
+    border: none;
+    border-bottom: 1px solid var(--white);
+    outline: none;
+    background-color: var(--darkBlue);
+    color: var(--white);
+}
+
+.container .navigator .icons input:focus {
+    border: 2px solid var(--white);
+    border-radius: 10px;
+}
+
+.container .navigator .icons :placeholder-shown {
+    padding: 6px 12px;
+    font-weight: 800;
+}
+
+.container .dashBoard {
+    display: flex;
+    height: 100vh;
+}
+
+.container .dashBoard .admin {
+    width: 15%;
+}
+
+.container .dashBoard .status {
+    width: 100%;
+}
+
+.container .dashBoard .admin .user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.container .dashBoard .admin .user .avatar ion-icon {
+    font-size: 200px;
+}
+
+.container .dashBoard .admin .user .name h1 {
+    color: var(--darkBlue);
+    font-size: 44px;
+}
+
+.container .dashBoard .admin .listItems ul li {
+    border-bottom: 1px solid var(--grayishBlue);
+    padding: 12px;
+    cursor: pointer;
+}
+
+.container .dashBoard .admin .listItems ul li ion-icon {
+    margin: 0 24px 0 0;
+}
+
+.container .dashBoard .admin .listItems ul li:first-child {
+    color: var(--white);
+    background-color: var(--blue);
+    font-weight: 800;
+}
+
+.container .dashBoard .admin .listItems ul li:hover {
+    color: var(--white);
+    background-color: var(--blue);
+    font-weight: 800;
+}
+
+.container .dashBoard .admin .socialMedia .listSocialMedia {
+    margin-top: 50px;
+}
+
+.container .dashBoard .admin .socialMedia .listSocialMedia ul li {
+    border-bottom: 1px solid var(--grayishBlue);
+    padding: 12px;
+    cursor: pointer;
+}
+
+.container .dashBoard .admin .socialMedia .listSocialMedia ul li ion-icon {
+    margin: 0 24px 0 0;
+}
+
+.container .dashBoard .admin .socialMedia .listSocialMedia ul li:hover {
+    color: var(--white);
+    background-color: var(--blue);
+    font-weight: 800;
+}
+
+.container .dashBoard .status {
+    padding: 40px;
+}
+
+.container .dashBoard .status .title h1 {
+    color: var(--darkBlue);
+}
+
+.container .dashBoard .status .title h1 span {
+    color: var(--blue);
+}
+
+.container .dashBoard .status .statistically {
+    display: flex;
+    margin-top: 130px;
+}
+
+.container .dashBoard .status .statistically .item {
+    background-color: var(--lightBlue);
+    padding: 52px 42px;
+    display: flex;
+    align-items: center;
+    margin: 24px;
+    border-radius: 12px;
+}
+
+.container .dashBoard .status .statistically .item .icon ion-icon {
+    font-size: 50px;
+}
+
+.container .dashBoard .status .statistically .item .icon ion-icon:hover {
+    color: var(--white);
+}
+
+.container .dashBoard .status .statistically .item .number {
+    background-color: var(--red);
+    color: var(--white);
+    padding: 12px;
+    border-radius: 15px;
+    margin: 0 12px;
+    font-weight: 800;
+}
+
+.container .dashBoard .status .statistically .item .title {
+    font-weight: 800;
+    color: var(--white);
+}
+
+.container .dashBoard .status .overview {
+    margin-top: 30px;
+}
+
+.container .dashBoard .status .overview h1 {
+    text-align: center;
+    border-bottom: 2px solid var(--darkBlue);
+    padding-bottom: 24px;
+    margin-top: 30px;
+}
+
+.container .dashBoard .status .overview p {
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.container .dashBoard .status .overview p span {
+    display: block;
+    color: var(--green);
+    font-weight: 800;
+    text-align: center;
+    margin-top: 20px;
+    border: 2px solid var(--grayishBlue);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.container .dashBoard .status .overview .details {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.container .dashBoard .status .utilizatori h1 {
+    text-align: center;
+    margin-top: 100px;
+    border-bottom: 2px solid var(--darkBlue);
+}
+
+.container .dashBoard .status .utilizatori table {
+    display: flex;
+    justify-content: center;
+    border: 1px solid var(--grayish);
+    text-align: center;
+    margin-top: 24px;
+}
+
+.container .dashBoard .status .utilizatori table th,
+.container .dashBoard .status .utilizatori table td {
+    padding: 15px;
+    font-size: 18px;
+    background-color: var(--grayishBlue);
+    color: var(--white);
+}
+
+.container .dashBoard .status .utilizatori table .delete {
+    color: var(--white);
+    background-color: var(--red);
+}
+
+.container .dashBoard .status .utilizatori table .modify {
+    color: var(--white);
+    background-color: var(--green);
+}
+
+.container .dashBoard .status .utilizatori table .delete,
+.container .dashBoard .status .utilizatori table .modify {
+    font-size: 16px;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 8px;
+}

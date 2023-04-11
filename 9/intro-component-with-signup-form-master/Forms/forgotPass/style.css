@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --red: hsla(0, 100%, 74%, 0.879);
+    --green: hsl(154, 59%, 51%);
+    --blue: hsl(248, 32%, 49%);
+    --darkBlue: hsl(249, 10%, 26%);
+    --grayishBlue: hsl(246, 25%, 77%);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background-color: var(--red);
+}
+
+.container form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 35px;
+    margin-top: 30px;
+    background-color: #ffff;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+.container form .imageUser {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.container form .imageUser ion-icon {
+    font-size: 34px;
+    margin-top: 24px;
+}
+
+.container form label {
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.container form input {
+    padding: 12px;
+    outline: none;
+    border-radius: 8px;
+    border: 1px solid var(--grayishBlue);
+    width: 100%;
+}
+
+.container form ::placeholder {
+    color: var(--darkBlue);
+    font-weight: 800;
+}
+
+.container form .btn {
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    margin-top: 16px;
+    background-color: var(--green);
+    color: #ffff;
+    font-weight: 800;
+    font-size: 16px;
+    padding: 12px 24px;
+    cursor: pointer;
+}
+
+.container form .btn:hover {
+    color: var(--green);
+    background-color: #ffff;
+    transition: 1.5s ease-out;
+}
+
+.container form .forms {
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.container form .forms a {
+    text-decoration: none;
+    color: var(--darkBlue);
+}
+
+.container form .forms a:hover {
+    color: var(--green);
+    font-weight: 800;
+}
+
+@media only screen and (max-width: 480px) and (min-width: 320px) {
+    .container form {
+        padding: 10px 15px;
+        margin: 14px;
+    }
+    .container form .imageUser h1 {
+        font-size: 25px;
+    }
+    .container form .imageUser ion-icon {
+        font-size: 24px;
+        margin-top: 10px;
+    }
+    .container form label {
+        margin-top: 5px;
+    }
+    .container form input {
+        padding: 6px;
+        width: 100%;
+    }
+    .container form .btn {
+        width: 100%;
+        margin-top: 10px;
+        font-size: 14px;
+        padding: 8px 20px;
+    }
+}

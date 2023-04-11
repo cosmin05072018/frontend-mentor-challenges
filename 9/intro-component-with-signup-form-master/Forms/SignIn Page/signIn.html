@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autentificare</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <form action="index.html" method="POST">
+            <div class="imageUser">
+                <h1>Autentificare</h1>
+                <ion-icon name="person"></ion-icon>
+            </div>
+            <label for="emailAdress">Adresa de email:</label>
+            <input type="email" placeholder="Introdu adresa de email">
+
+            <label for="password">Parola:</label>
+            <input type="password" placeholder="Introdu parola">
+
+            <button class="btn" type="submit">Autentifică-te!</button>
+
+            <div class="goToSignIn">
+                <p class="message">Nu ai cont? <a href="../Register Page/register.html">Înregistrează-te!</a></p>
+                <p class="forgotPassword"><a href="../forgotPass/forgotPass.html">Ai uitat parola?</a></p>
+            </div>
+        </form>
+
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
