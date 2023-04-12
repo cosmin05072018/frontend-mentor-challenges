@@ -18,7 +18,6 @@
 }
 
 .container {
-    width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -27,6 +26,9 @@
 
 .container .presentation {
     margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .container .presentation h1 {
@@ -42,7 +44,7 @@
 
 .container .presentation p {
     color: var(--grayishBlue);
-    width: 540px;
+    padding: 0 20%;
     text-align: center;
     margin-top: 20px;
 }
@@ -63,14 +65,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin: 0 36px;
-}
-
-.container .sections .leftSection .content {
-    border-top: 4px solid var(--cyan);
-    border-radius: 5px;
-    padding: 28px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+    margin: 0 35px;
 }
 
 .container .sections .leftSection .content h3,
@@ -95,22 +90,26 @@
     margin-top: 45px;
 }
 
+.container .sections .leftSection .content {
+    border-top: 4px solid var(--cyan);
+}
+
 .container .sections .centerSection .content:first-child {
     border-top: 4px solid var(--red);
-    border-radius: 5px;
-    padding: 28px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
 }
 
 .container .sections .centerSection .content:last-child {
     border-top: 4px solid var(--orange);
-    border-radius: 5px;
-    padding: 28px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
 }
 
 .container .sections .rightSection .content {
     border-top: 4px solid var(--blue);
+}
+
+.container .sections .leftSection .content,
+.container .sections .centerSection .content:first-child,
+.container .sections .centerSection .content:last-child,
+.container .sections .rightSection .content {
     border-radius: 5px;
     padding: 28px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
