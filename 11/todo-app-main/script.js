@@ -32,68 +32,77 @@ setupTheme();
 
 function lightTheme() {
   toDoApp.style.backgroundImage = 'url("./bg-desktop-light.jpg")';
-  container.classList.remove("containerDarkTheme");
-  container.classList.add("containerLightTheme");
-  inputForm.classList.remove("inputFormDarkTheme");
-  inputForm.classList.add("inputFormLightTheme");
-  input.classList.add("inputLightTheme");
+  removeClass(container, "containerDarkTheme");
+  addClass(container, "containerLightTheme");
+  removeClass(inputForm, "inputFormDarkTheme");
+  addClass(inputForm, "inputFormLightTheme");
+  addClass(input, "inputLightTheme");
   statusCircle.forEach((element) => {
-    element.classList.remove("statusDarkTheme");
-    element.classList.add("statusLightTheme");
-    element.classList.add("statusLightThemeHover");
-    element.classList.remove("statusDarkThemeHover");
+    removeClass(element, "statusDarkTheme");
+    addClass(element, "statusLightTheme");
+    addClass(element, "statusLightThemeHover");
+    removeClass(element, "statusDarkThemeHover");
   });
-  listItems.classList.remove("listItemsDarkTheme");
-  listItems.classList.add("listItemsLightTheme");
+  removeClass(listItems, "listItemsDarkTheme");
+  addClass(listItems, "listItemsLightTheme");
+  addClass(listItems, "listItemsLightTheme");
   listTag.forEach((li) => {
-    li.classList.remove("listDarkTheme");
-    li.classList.add("listLightTheme");
+    removeClass(li, "listDarkTheme");
+    addClass(li, "listLightTheme");
   });
   for (let i = 0; i < optionList.length; i++) {
-    optionList[i].classList.remove("hoverDarkTheme");
-    optionList[i].classList.add("hoverLightTheme");
+    removeClass(optionList[i], "hoverDarkTheme");
+    addClass(optionList[i], "hoverLightTheme");
   }
 }
 
 function darkTheme() {
-  toDoApp.style.backgroundImage = 'url("./bg-desktop-dark.jpg")';
-  container.classList.add("containerDarkTheme");
-  container.classList.remove("containerLightTheme");
-  inputForm.classList.remove("inputFormLightTheme");
-  inputForm.classList.add("inputFormDarkTheme");
-  input.classList.remove("inputLightTheme");
+  toDoApp.style.backgroundImage = 'url("./bg-desktop-dark.jpg")'
+  addClass(container, "containerDarkTheme");
+  removeClass(container, "containerLightTheme");
+  removeClass(inputForm, "inputFormLightTheme");
+  addClass(inputForm, "inputFormDarkTheme");
+  removeClass(input, "inputLightTheme");
   statusCircle.forEach((element) => {
-    element.classList.remove("statusLightTheme");
-    element.classList.add("statusDarkTheme");
-    element.classList.remove("statusLightThemeHover");
-    element.classList.add("statusDarkThemeHover");
+    removeClass(element, "statusLightTheme");
+    addClass(element, "statusDarkTheme");
+    removeClass(element, "statusLightThemeHover");
+    addClass(element, "statusDarkThemeHover");
   });
-  listItems.classList.add("listItemsDarkTheme");
-  listItems.classList.remove("listItemsLightTheme");
+  addClass(listItems, "listItemsDarkTheme");
+  removeClass(listItems, "listItemsLightTheme");
   listTag.forEach((li) => {
-    li.classList.add("listDarkTheme");
-    li.classList.remove("listLightTheme");
+    addClass(li, "listDarkTheme");
+    removeClass(li, "listLightTheme");
   });
   for (let i = 0; i < optionList.length; i++) {
-    optionList[i].classList.add("hoverDarkTheme");
-    optionList[i].classList.remove("hoverLightTheme");
+    addClass( optionList[i], "hoverDarkTheme");
+    removeClass( optionList[i], "hoverLightTheme");
   }
+}
+
+function addClass(element, className) {
+  element.classList.add(className);
+}
+
+function removeClass(element, className) {
+  element.classList.remove(className);
 }
 
 // active function
 
-function activeOptionList(){
-    for(let i = 0; i < optionList.length-1; i++) {
-        optionList[i].addEventListener('click', ()=>{
-            for(let j = 0; j < optionList.length; j++) {
-                optionList[j].classList.remove('activeClass')
-            }
-            optionList[i].classList.add('activeClass');
-        })
-    }
+function activeOptionList() {
+  for (let i = 0; i < optionList.length - 1; i++) {
+    optionList[i].addEventListener("click", () => {
+      for (let j = 0; j < optionList.length; j++) {
+        optionList[j].classList.remove("activeClass");
+      }
+      optionList[i].classList.add("activeClass");
+    });
+  }
 }
 
-activeOptionList()
+activeOptionList();
 
 // toDo List
 
@@ -110,8 +119,8 @@ situationList();
 
 input.addEventListener("click", () => {
   input.value = "";
-//   const notFound = document.querySelector(".notFound");
-//   notFound.style.display = "none";
+  //   const notFound = document.querySelector(".notFound");
+  //   notFound.style.display = "none";
   input.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
       let valueInput = e.target.value;

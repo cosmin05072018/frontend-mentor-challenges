@@ -118,16 +118,16 @@
   border: 1px solid var(--VeryDarkGrayishBlueTwo);
 }
 
-.statusDarkThemeHover:hover{
-    border-radius: 50%;
-    border: 1px solid;
-    border-color: var(--checkBackground);
+.statusDarkThemeHover:hover {
+  border-radius: 50%;
+  border: 1px solid;
+  border-color: var(--checkBackground);
 }
 
-.statusLightThemeHover:hover{
-    border-radius: 50%;
-    border: 1px solid;
-    border-color: var(--checkBackground);
+.statusLightThemeHover:hover {
+  border-radius: 50%;
+  border: 1px solid;
+  border-color: var(--checkBackground);
 }
 
 .statusLightTheme {
@@ -217,6 +217,14 @@
 .completed:hover,
 .clearCompleted:hover {
   cursor: pointer;
+}
+
+.list li .close img {
+  opacity: 0;
+}
+
+.list li:hover .close img {
+  opacity: 1;
 }
 
 .hoverDarkTheme:hover {
