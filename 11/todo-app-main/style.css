@@ -1,0 +1,254 @@
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Josefin+Sans:wght@300;400;500;600;700&family=Permanent+Marker&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+:root {
+  /* Primary */
+  --brightBlue: hsl(220, 98%, 61%);
+  --checkBackground: linear-gradient(
+    to bottom,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+  /* Light Theme */
+  --veryLightGray: hsl(0, 0%, 98%);
+  --veryLightGrayishBlue: hsl(236, 33%, 92%);
+  --lightGrayishBlue: hsl(233, 11%, 84%);
+  --darkGrayishBlue: hsl(236, 9%, 61%);
+  --veryDarkGrayishBlue: hsl(235, 19%, 35%);
+  /* Dark Theme */
+  --VeryDarkBlue: hsl(235, 21%, 11%);
+  --VeryDarkDesaturatedBlue: hsl(235, 24%, 19%);
+  --LightGrayishBlue: hsl(234, 39%, 85%);
+  --LightGrayishBlueHover: hsl(236, 33%, 92%); /*(hover)*/
+  --DarkGrayishBlue: hsl(234, 11%, 52%);
+  --VeryDarkGrayishBlueOne: hsl(233, 14%, 35%);
+  --VeryDarkGrayishBlueTwo: hsl(237, 14%, 26%);
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+}
+
+.containerDarkTheme {
+  background-color: var(--VeryDarkBlue);
+}
+
+.containerLightTheme {
+  background-color: var(--veryLightGray);
+}
+
+.container .toDoApp {
+  background-image: url("./bg-desktop-dark.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 40vh;
+  width: 100%;
+}
+
+.container .toDoApp .top {
+  color: var(--veryLightGray);
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+  width: 30%;
+}
+
+.container .toDoApp .top .title {
+  letter-spacing: 18px;
+  font-weight: bolder;
+  font-size: 40px;
+}
+.container .toDoApp .form {
+  width: 30%;
+}
+.container .toDoApp .form form .inputForm {
+  width: 100%;
+  margin: 30px 0;
+  color: var(--LightGrayishBlue);
+  border-radius: 8px;
+  padding: 20px 12px;
+  display: flex;
+}
+
+.inputFormDarkTheme {
+  background-color: var(--VeryDarkDesaturatedBlue);
+}
+
+.inputFormLightTheme {
+  background-color: var(--veryLightGray);
+}
+
+.container .toDoApp .form form .inputForm input {
+  outline: none;
+  border: none;
+  margin-left: 20px;
+  font-size: 18px;
+}
+
+.inputDarkTheme {
+  background-color: var(--VeryDarkDesaturatedBlue);
+  color: var(--veryLightGray);
+}
+
+.inputLightTheme {
+  background-color: var(--veryLightGray);
+  color: var(--VeryDarkDesaturatedBlue);
+}
+
+.status {
+  margin: 0 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border-color: var(--checkBackground);
+}
+
+.statusDarkTheme {
+  border: 1px solid var(--VeryDarkGrayishBlueTwo);
+}
+
+.statusDarkThemeHover:hover{
+    border-radius: 50%;
+    border: 1px solid;
+    border-color: var(--checkBackground);
+}
+
+.statusLightThemeHover:hover{
+    border-radius: 50%;
+    border: 1px solid;
+    border-color: var(--checkBackground);
+}
+
+.statusLightTheme {
+  border: 1px solid var(--veryLightGrayishBlue);
+}
+
+.listItems {
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+.listItemsDarkTheme {
+  background-color: var(--VeryDarkDesaturatedBlue);
+}
+
+.listItemsLightTheme {
+  background-color: var(--veryLightGray);
+}
+
+.listItems .list li {
+  align-items: center;
+  display: flex;
+  list-style: none;
+  padding: 20px 12px;
+  font-weight: 400;
+}
+
+.listDarkTheme {
+  border-bottom: 1px solid var(--VeryDarkGrayishBlueTwo);
+  color: var(--LightGrayishBlue);
+}
+
+.listLightTheme {
+  border-bottom: 1px solid var(--veryLightGrayishBlue);
+  color: var(--veryDarkGrayishBlue);
+}
+
+.listItems .list li:first-child .status {
+  background: var(--checkBackground);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.listItems .list li:first-child {
+  text-decoration: line-through;
+  color: var(--DarkGrayishBlue);
+}
+/* 
+.listItems .list li .status:hover {
+  border-color: var(--checkBackground);
+} */
+
+.listItems .list .toDo {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.optionList {
+  display: flex;
+  justify-content: space-around;
+  padding: 18px 0;
+  color: var(--DarkGrayishBlue);
+  /* font-weight: bold; */
+}
+
+.optionList .filter {
+  display: flex;
+  justify-content: space-around;
+  font-weight: 800;
+}
+
+.optionList .filter .all,
+.optionList .filter .active {
+  margin-right: 20px;
+}
+
+/* hover cursor:pointer */
+
+.status:hover,
+.toDo:hover,
+.close img:hover,
+.all:hover,
+.active:hover,
+.completed:hover,
+.clearCompleted:hover {
+  cursor: pointer;
+}
+
+.hoverDarkTheme:hover {
+  color: var(--LightGrayishBlueHover);
+  cursor: pointer;
+}
+
+.hoverLightTheme:hover {
+  color: var(--veryDarkGrayishBlue);
+  cursor: pointer;
+}
+
+.theme {
+  cursor: pointer;
+}
+
+/* helper class */
+
+.activeClass {
+  color: var(--brightBlue);
+  font-weight: bold;
+}
+
+.hiddenClass {
+  display: none;
+}
+
+/* no list */
+
+.notFound {
+  background-color: var(--VeryDarkGrayishBlueTwo);
+  color: var(--veryLightGray);
+  font-weight: 800;
+  padding: 12px 24px;
+}

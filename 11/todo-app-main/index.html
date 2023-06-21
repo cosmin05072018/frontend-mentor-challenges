@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo app</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container containerDarkTheme">
+      <div class="toDoApp">
+        <div class="top">
+          <h1 class="title">TODO</h1>
+          <div class="iconsSunMoon">
+            <img class="theme iconSun hiddenClass " src="./icon-sun.svg" alt="iconSun" />
+            <img class="theme iconMoon" src="./icon-moon.svg" alt="iconMoon">
+          </div>
+        </div>
+        <div class="form">
+          <form action="#">
+            <div class="inputForm inputFormDarkTheme">
+              <div class="status statusDarkTheme statusDarkThemeHover"></div>
+              <input class="input inputDarkTheme" type="text" value="Currently typing" />
+            </div>
+          </form>
+          <div class="listItems listItemsDarkTheme">
+            <ul class="list">
+              <li class="listDarkTheme">
+                <div class="status statusDarkTheme statusDarkThemeHover">
+                  <img src="./icon-check.svg" alt="iconCheck" />
+                </div>
+                <div class="toDo">
+                  <p>Complete online Javascript course</p>
+                  <img class="close" src="./icon-cross.svg" alt="iconCross" />
+                </div>
+              </li>
+              <li class="listDarkTheme">
+                <div class="status statusDarkTheme statusDarkThemeHover"></div>
+                <div class="toDo">Jog around the park 3X</div>
+                <div class="close">
+                  <img src="./icon-cross.svg" alt="iconCross" />
+                </div>
+              </li>
+              <li class="listDarkTheme">
+                <div class="status statusDarkTheme statusDarkThemeHover"></div>
+                <div class="toDo">10 minutes meditation</div>
+                <div class="close">
+                  <img src="./icon-cross.svg" alt="iconCross" />
+                </div>
+              </li>
+              <li class="listDarkTheme">
+                <div class="status statusDarkTheme statusDarkThemeHover"></div>
+                <div class="toDo">Read for 1 hour</div>
+                <div class="close">
+                  <img src="./icon-cross.svg" alt="iconCross" />
+                </div>
+              </li>
+              <li class="listDarkTheme">
+                <div class="status statusDarkTheme statusDarkThemeHover"></div>
+                <div class="toDo">Pick up groceries</div>
+                <div class="close">
+                  <img src="./icon-cross.svg" alt="iconCross" />
+                </div>
+              </li>
+              <li class="listDarkTheme">
+                <div class="status statusDarkTheme statusDarkThemeHover"></div>
+                <div class="toDo">Complete ToDo App on Frontend Mentor</div>
+                <div class="close">
+                  <img src="./icon-cross.svg" alt="iconCross" />
+                </div>
+              </li>
+            </ul>
+            <div class="optionList">
+              <p class="numberItems">5 items left</p>
+              <div class="filter">
+                <p class="all activeClass hoverDarkTheme">All</p>
+                <p class="active hoverDarkTheme">Active</p>
+                <p class="completed hoverDarkTheme">Completed</p>
+              </div>
+              <div class="clear hoverDarkTheme">Clear Completed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
