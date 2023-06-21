@@ -167,16 +167,16 @@
   color: var(--veryDarkGrayishBlue);
 }
 
-.listItems .list li:first-child .status {
+/* .listItems .list li:first-child .status {
   background: var(--checkBackground);
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.listItems .list li:first-child {
+} */
+/* .listItems .list li:first-child {
   text-decoration: line-through;
   color: var(--DarkGrayishBlue);
-}
+} */
 /* 
 .listItems .list li .status:hover {
   border-color: var(--checkBackground);
@@ -250,6 +250,18 @@
 
 .hiddenClass {
   display: none;
+}
+
+.markItemList {
+  text-decoration: line-through;
+  color: var(--DarkGrayishBlue);
+}
+
+.markStatus{
+    background: var(--checkBackground);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* no list */

@@ -57,7 +57,7 @@ function lightTheme() {
 }
 
 function darkTheme() {
-  toDoApp.style.backgroundImage = 'url("./bg-desktop-dark.jpg")'
+  toDoApp.style.backgroundImage = 'url("./bg-desktop-dark.jpg")';
   addClass(container, "containerDarkTheme");
   removeClass(container, "containerLightTheme");
   removeClass(inputForm, "inputFormLightTheme");
@@ -76,8 +76,8 @@ function darkTheme() {
     removeClass(li, "listLightTheme");
   });
   for (let i = 0; i < optionList.length; i++) {
-    addClass( optionList[i], "hoverDarkTheme");
-    removeClass( optionList[i], "hoverLightTheme");
+    addClass(optionList[i], "hoverDarkTheme");
+    removeClass(optionList[i], "hoverLightTheme");
   }
 }
 
@@ -103,6 +103,16 @@ function activeOptionList() {
 }
 
 activeOptionList();
+
+/*MARK ELEMENT LIST*/
+
+statusCircle.forEach((circle) => {
+  circle.addEventListener("click", () => {
+    circle.classList.add("markStatus");
+    circle.innerHTML = `<img src="./icon-check.svg" alt="iconCheck" />`
+    circle.nextElementSibling.classList.add("markItemList");
+  });
+});
 
 // toDo List
 
