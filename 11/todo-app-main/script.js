@@ -13,6 +13,8 @@ const listTag = document.querySelectorAll("li");
 const all = document.querySelector(".all");
 const active = document.querySelector(".active");
 const completed = document.querySelector(".completed");
+const close = document.querySelectorAll(".close");
+const numberList = document.querySelector(".numberList");
 const clearCompletedDarkTheme = document.querySelector(".clear");
 let optionList = [all, active, completed, clearCompletedDarkTheme];
 
@@ -104,15 +106,37 @@ function activeOptionList() {
 
 activeOptionList();
 
-/*MARK ELEMENT LIST*/
+/*LIST EVENIMENTS*/
 
-statusCircle.forEach((circle) => {
-  circle.addEventListener("click", () => {
-    circle.classList.add("markStatus");
-    circle.innerHTML = `<img src="./icon-check.svg" alt="iconCheck" />`
-    circle.nextElementSibling.classList.add("markItemList");
+statusCircle.forEach((circle, index) => {
+  if (index > 0) {
+    circle.addEventListener("click", () => {
+      circle.classList.toggle("markStatus");
+      circle.nextElementSibling.classList.toggle("markItemList");
+      if (circle.classList.contains("markStatus")) {
+        circle.innerHTML = `<img src="./icon-check.svg" alt="iconCheck" />`;
+      } else {
+        circle.innerHTML = "";
+      }
+    });
+  }
+});
+
+close.forEach((elementX) => {
+  numberList.innerHTML = listTag.length;
+  elementX.addEventListener("click", () => {
+    console.log("close")
+    elementX.parentNode.remove();
+    numberItems(numberList);
   });
 });
+
+function numberItems(elementHtml) {
+  const listTag = document.querySelectorAll("li");
+  elementHtml.innerHTML = listTag.length;
+}
+
+
 
 // toDo List
 
@@ -120,30 +144,32 @@ const contentList = document.querySelector("ul");
 console.log(input.value);
 
 function situationList() {
-  if (!contentList.childElementCount) {
-    contentList.innerHTML =
+  listItems.innerHTML =
       '<p class="notFound">There are currently no tasks...</p>';
   }
-}
-situationList();
 
-input.addEventListener("click", () => {
-  input.value = "";
-  //   const notFound = document.querySelector(".notFound");
-  //   notFound.style.display = "none";
+  input.addEventListener("click", () => {
+    input.value = "";
+    
+  });
+
   input.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
       let valueInput = e.target.value;
-      contentList.innerHTML += `
-           <li class="listDarkTheme">
-                <div class="status statusDarkTheme"></div>
-                <div class="toDo">${valueInput}</div>
-                <div class="close">
-                  <img src="./icon-cross.svg" alt="iconCross" />
-                </div>
-              </li>
+      if (valueInput === "") {
+        return;
+      } else {
+        contentList.innerHTML += `
+              <li class="listDarkTheme">
+              <div class="status statusDarkTheme statusDarkThemeHover"></div>
+              <div class="toDo">${valueInput}</div>
+              <div class="close">
+                <img src="./icon-cross.svg" alt="iconCross" />
+              </div>
+            </li>
            `;
-      input.value = "";
+        input.value = "";
+        numberItems(numberList);
+      }
     }
   });
-});
