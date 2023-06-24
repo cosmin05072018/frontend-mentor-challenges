@@ -149,16 +149,34 @@ input.addEventListener("click", () => {
       if (valueInput === "") {
         return;
       } else {
-        contentList.innerHTML += `
-                <li class="listDarkTheme">
-                <div class="status statusDarkTheme statusDarkThemeHover"></div>
-                <div class="toDo">${valueInput}</div>
-                <div class="close">
-                  <img src="./icon-cross.svg" alt="iconCross" />
-                </div>
-              </li>
-             `;
-    
+        let li = document.createElement("li");
+        li.classList.add("listDarkTheme");
+        let divStatusClass = document.createElement("div");
+        divStatusClass.classList.add(
+          "status",
+          "statusDarkTheme",
+          "statusDarkThemeHover"
+        );
+        let divToDoClass = document.createElement("div");
+        divToDoClass.classList.add("toDo");
+        divToDoClass.innerHTML += `${valueInput}`;
+        let divCloseClass = document.createElement("div");
+        divCloseClass.classList.add("close");
+        divCloseClass.innerHTML = `<img src="./icon-cross.svg" alt="iconCross" />`;
+        
+        contentList.appendChild(li);
+        li.appendChild(divStatusClass);
+        li.appendChild(divToDoClass);
+        li.appendChild(divCloseClass);
+        // contentList.innerHTML += `
+        //         <li class="listDarkTheme">
+        //         <div class="status statusDarkTheme statusDarkThemeHover"></div>
+        //         <div class="toDo">${valueInput}</div>
+        //         <div class="close">
+        //           <img src="./icon-cross.svg" alt="iconCross" />
+        //         </div>
+        //       </li>
+        //      `;
 
         input.value = "";
         numberItems(numberList);
