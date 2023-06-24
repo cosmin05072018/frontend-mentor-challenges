@@ -13,8 +13,9 @@ const listTag = document.querySelectorAll("li");
 const all = document.querySelector(".all");
 const active = document.querySelector(".active");
 const completed = document.querySelector(".completed");
-const close = document.querySelectorAll(".close");
+const remove = document.querySelectorAll(".close");
 const numberList = document.querySelector(".numberList");
+const contentList = document.querySelector("ul");
 const clearCompletedDarkTheme = document.querySelector(".clear");
 let optionList = [all, active, completed, clearCompletedDarkTheme];
 
@@ -122,37 +123,26 @@ statusCircle.forEach((circle, index) => {
   }
 });
 
-close.forEach((elementX) => {
+// toDo List
+
+console.log(input.value);
+
+function situationList() {
+  listItems.innerHTML =
+    '<p class="notFound">There are currently no tasks...</p>';
+}
+
+remove.forEach((elementX) => {
   numberList.innerHTML = listTag.length;
   elementX.addEventListener("click", () => {
-    console.log("close")
+    console.log("close");
     elementX.parentNode.remove();
     numberItems(numberList);
   });
 });
 
-function numberItems(elementHtml) {
-  const listTag = document.querySelectorAll("li");
-  elementHtml.innerHTML = listTag.length;
-}
-
-
-
-// toDo List
-
-const contentList = document.querySelector("ul");
-console.log(input.value);
-
-function situationList() {
-  listItems.innerHTML =
-      '<p class="notFound">There are currently no tasks...</p>';
-  }
-
-  input.addEventListener("click", () => {
-    input.value = "";
-    
-  });
-
+input.addEventListener("click", () => {
+  input.value = "";
   input.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
       let valueInput = e.target.value;
@@ -160,16 +150,24 @@ function situationList() {
         return;
       } else {
         contentList.innerHTML += `
-              <li class="listDarkTheme">
-              <div class="status statusDarkTheme statusDarkThemeHover"></div>
-              <div class="toDo">${valueInput}</div>
-              <div class="close">
-                <img src="./icon-cross.svg" alt="iconCross" />
-              </div>
-            </li>
-           `;
+                <li class="listDarkTheme">
+                <div class="status statusDarkTheme statusDarkThemeHover"></div>
+                <div class="toDo">${valueInput}</div>
+                <div class="close">
+                  <img src="./icon-cross.svg" alt="iconCross" />
+                </div>
+              </li>
+             `;
+    
+
         input.value = "";
         numberItems(numberList);
       }
     }
   });
+});
+
+function numberItems(elementHtml) {
+  const listTag = document.querySelectorAll("li");
+  elementHtml.innerHTML = listTag.length;
+}
