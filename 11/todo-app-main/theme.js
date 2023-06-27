@@ -114,3 +114,7 @@ statusCircle.forEach((circle, index) => {
       });
     }
   });
+
+
+
+//   trebuie sa salvam in local storage tema 
