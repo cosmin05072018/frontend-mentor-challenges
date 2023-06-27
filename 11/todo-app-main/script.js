@@ -158,25 +158,24 @@ input.addEventListener("click", () => {
           "statusDarkThemeHover"
         );
         let divToDoClass = document.createElement("div");
-        divToDoClass.classList.add("toDo");
         divToDoClass.innerHTML += `${valueInput}`;
+        divToDoClass.classList.add("toDo");
         let divCloseClass = document.createElement("div");
         divCloseClass.classList.add("close");
         divCloseClass.innerHTML = `<img src="./icon-cross.svg" alt="iconCross" />`;
-        
+
         contentList.appendChild(li);
         li.appendChild(divStatusClass);
         li.appendChild(divToDoClass);
         li.appendChild(divCloseClass);
-        // contentList.innerHTML += `
-        //         <li class="listDarkTheme">
-        //         <div class="status statusDarkTheme statusDarkThemeHover"></div>
-        //         <div class="toDo">${valueInput}</div>
-        //         <div class="close">
-        //           <img src="./icon-cross.svg" alt="iconCross" />
-        //         </div>
-        //       </li>
-        //      `;
+        divCloseClass.addEventListener("click",()=>{
+          console.log('close')
+          
+    divCloseClass.parentNode.remove();
+    numberItems(numberList);
+        })
+
+        // TREBUIE SA CREEZ O FUNCTIE CARE SA FIE PE BUTONUL DE REMOVE SI APELAT CAND APESI PE ELEMENT
 
         input.value = "";
         numberItems(numberList);
