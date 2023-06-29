@@ -11,18 +11,39 @@ const all = document.querySelector(".all");
 const active = document.querySelector(".active");
 const completed = document.querySelector(".completed");
 const clearCompletedDarkTheme = document.querySelector(".clear");
-
 let optionList = [all, active, completed, clearCompletedDarkTheme];
+
+// trebuie sa salvam si icon-ul pentru soare si luna, de asta nu functioneaza cum trebuie
+// hiddenClass
+
+localStorage.setItem('class', 'hiddenClass');
+let displayMoonSun =localStorage.getItem('class') 
+sun.classList.add(displayMoonSun);
+
 function setupTheme() {
-  moon.addEventListener("click", () => {
-    moon.classList.add("hiddenClass");
-    sun.classList.remove("hiddenClass");
+  const storedTheme = localStorage.getItem("theme");
+  if (storedTheme === "light") {
     lightTheme();
-  });
-  sun.addEventListener("click", () => {
-    sun.classList.add("hiddenClass");
-    moon.classList.remove("hiddenClass");
+    moon.classList.add(localStorage.getItem("class"));
+    sun.classList.remove(displayMoonSun);
+  } else {
     darkTheme();
+    moon.classList.remove(localStorage.getItem("class"));
+    sun.classList.add(displayMoonSun);
+  }
+
+  moon.addEventListener("click", () => {
+    moon.classList.add(localStorage.getItem("class"));
+    sun.classList.remove(displayMoonSun);
+    lightTheme();
+    localStorage.setItem("theme", "light");
+  });
+
+  sun.addEventListener("click", () => {
+    moon.classList.remove(localStorage.getItem("class"));
+    sun.classList.add(displayMoonSun);
+    darkTheme();
+    localStorage.setItem("theme", "dark");
   });
 }
 
@@ -100,21 +121,18 @@ function activeOptionList() {
 
 activeOptionList();
 
-
 statusCircle.forEach((circle, index) => {
-    if (index > 0) {
-      circle.addEventListener("click", () => {
-        circle.classList.toggle("markStatus");
-        circle.nextElementSibling.classList.toggle("markItemList");
-        if (circle.classList.contains("markStatus")) {
-          circle.innerHTML = `<img src="./icon-check.svg" alt="iconCheck" />`;
-        } else {
-          circle.innerHTML = "";
-        }
-      });
-    }
-  });
+  if (index > 0) {
+    circle.addEventListener("click", () => {
+      circle.classList.toggle("markStatus");
+      circle.nextElementSibling.classList.toggle("markItemList");
+      if (circle.classList.contains("markStatus")) {
+        circle.innerHTML = `<img src="./icon-check.svg" alt="iconCheck" />`;
+      } else {
+        circle.innerHTML = "";
+      }
+    });
+  }
+});
 
-
-
-//   trebuie sa salvam in local storage tema 
+//   trebuie sa salvam in local storage tema
