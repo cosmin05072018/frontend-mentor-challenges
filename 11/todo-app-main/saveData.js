@@ -29,10 +29,11 @@ for (let i = 0; i < id; i++) {
 }
 
 function getItemLocalStorage(id) {
+  let arr = localStorage.getItem('iconCheckId');
   return `
     <li class="listDarkTheme">
-      <div id=${id} class="status statusDarkTheme statusDarkThemeHover" onclick="markElement(this)"></div>
-      <div id=${id} class="toDo">${localStorage.getItem(id)}</div>
+    <div id=${id} class="status statusDarkTheme statusDarkThemeHover ${arr ? (arr.includes(id) ? "markStatus" : "") : ""}" onclick="markElement(this)"></div>
+      <div id=${id} class="toDo ${arr ? (arr.includes(id) ? " markItemList" : "") : ""}">${localStorage.getItem(id)}</div>
       <div class="close" onclick="deleteElement(this.previousElementSibling)">
         <img src="./icon-cross.svg" alt="iconCross" />
       </div>
