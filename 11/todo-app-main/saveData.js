@@ -31,7 +31,7 @@ for (let i = 0; i < id; i++) {
 function getItemLocalStorage(id) {
   return `
     <li class="listDarkTheme">
-      <div class="status statusDarkTheme statusDarkThemeHover"></div>
+      <div id=${id} class="status statusDarkTheme statusDarkThemeHover" onclick="markElement(this)"></div>
       <div id=${id} class="toDo">${localStorage.getItem(id)}</div>
       <div class="close" onclick="deleteElement(this.previousElementSibling)">
         <img src="./icon-cross.svg" alt="iconCross" />
@@ -61,3 +61,4 @@ function displayOptionList() {
   }
 }
 displayOptionList();
+

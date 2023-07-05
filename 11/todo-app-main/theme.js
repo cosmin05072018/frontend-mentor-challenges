@@ -121,18 +121,3 @@ function activeOptionList() {
 
 activeOptionList();
 
-statusCircle.forEach((circle, index) => {
-  if (index > 0) {
-    circle.addEventListener("click", () => {
-      circle.classList.toggle("markStatus");
-      circle.nextElementSibling.classList.toggle("markItemList");
-      if (circle.classList.contains("markStatus")) {
-        circle.innerHTML = `<img src="./icon-check.svg" alt="iconCheck" />`;
-      } else {
-        circle.innerHTML = "";
-      }
-    });
-  }
-});
-
-//   trebuie sa salvam in local storage tema
