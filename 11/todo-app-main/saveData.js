@@ -1,8 +1,9 @@
 const input = document.querySelector("input");
 const list = document.querySelector(".list");
-const btnAll= document.querySelector('.all');
-const btnActive= document.querySelector('.active');
-const btnCompleted = document.querySelector('.completed');
+const btnAll = document.querySelector(".all");
+const btnActive = document.querySelector(".active");
+const btnCompleted = document.querySelector(".completed");
+const statusItems = document.querySelector(".status");
 let id = parseInt(localStorage.getItem("id")) || 0;
 
 input.addEventListener("click", () => {
@@ -25,18 +26,24 @@ input.addEventListener("keypress", (e) => {
   }
 });
 
-for (let i = 0; i < id; i++) {
-  if (localStorage.getItem(i) !== null) {
-    list.innerHTML += getItemLocalStorage(i);
+function data() {
+  for (let i = 0; i < id; i++) {
+    if (localStorage.getItem(i) !== null) {
+      list.innerHTML += getItemLocalStorage(i);
+    }
   }
 }
-
+data();
 function getItemLocalStorage(id) {
-  let arr = localStorage.getItem('iconCheckId');
+  let arr = localStorage.getItem("iconCheckId");
   return `
     <li class="listDarkTheme">
-    <div id=${id} class="status statusDarkTheme statusDarkThemeHover ${arr ? (arr.includes(id) ? "markStatus" : "") : ""}" onclick="markElement(this)"></div>
-      <div id=${id} class="toDo ${arr ? (arr.includes(id) ? " markItemList" : "") : ""}">${localStorage.getItem(id)}</div>
+    <div id=${id} class="status statusDarkTheme statusDarkThemeHover ${
+    arr ? (arr.includes(id) ? "markStatus" : "") : ""
+  }" onclick="markElement(this)"></div>
+      <div id=${id} class="toDo ${
+    arr ? (arr.includes(id) ? " markItemList" : "") : ""
+  }">${localStorage.getItem(id)}</div>
       <div class="close" onclick="deleteElement(this.previousElementSibling)">
         <img src="./icon-cross.svg" alt="iconCross" />
       </div>
@@ -66,19 +73,45 @@ function displayOptionList() {
 }
 displayOptionList();
 
-const elementsStatusClass = document.querySelectorAll('.status');
-btnCompleted.addEventListener('click', () => {
-  elementsStatusClass.forEach((element) => {
-    if (element.classList.contains("markStatus")) {
-      list.innerHTML = ''
-      list.innerHTML += `
+btnAll.addEventListener("click", () => {
+  list.innerHTML = "";
+  data();
+});
+
+btnActive.addEventListener("click", () => {
+  const elementsWithoutMarkStatus = document.querySelectorAll(".status:not(.markStatus)");
+  let activeTasksHTML = "";
+  elementsWithoutMarkStatus.forEach((element) => {
+    let activeElement = element.nextElementSibling;
+    let activeTask = activeElement.textContent;
+    activeTasksHTML += `
       <li class="listDarkTheme">
-    <div id=${id} class="status statusDarkTheme statusDarkThemeHover ${arr ? (arr.includes(id) ? "markStatus" : "") : ""}" onclick="markElement(this)"></div>
-      <div id=${id} class="toDo ${arr ? (arr.includes(id) ? " markItemList" : "") : ""}">${localStorage.getItem(id)}</div>
-      <div class="close" onclick="deleteElement(this.previousElementSibling)">
-        <img src="./icon-cross.svg" alt="iconCross" />
-      </div>
-    </li>`
-    }
+        <div class="status statusDarkTheme statusDarkThemeHover"></div>
+        <div class="toDo">${activeTask}</div>
+        <div class="close">
+          <img src="./icon-cross.svg" alt="iconCross" />
+        </div>
+      </li>
+    `;
   });
+  list.innerHTML = activeTasksHTML;
+});
+
+btnCompleted.addEventListener("click", () => {
+  const markStatusClass = document.querySelectorAll(".markStatus");
+  let completedTasksHTML = "";
+  markStatusClass.forEach((element) => {
+    let completedElement = element.nextElementSibling;
+    let completedTask = completedElement.textContent;
+    completedTasksHTML += `
+      <li class="listDarkTheme">
+        <div class="status statusDarkTheme statusDarkThemeHover markStatus"></div>
+        <div class="toDo markItemList">${completedTask}</div>
+        <div class="close">
+          <img src="./icon-cross.svg" alt="iconCross" />
+        </div>
+      </li>
+    `;
+  });
+  list.innerHTML = completedTasksHTML;
 });
