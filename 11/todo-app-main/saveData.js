@@ -99,6 +99,7 @@ btnActive.addEventListener("click", () => {
 
 btnCompleted.addEventListener("click", () => {
   const markStatusClass = document.querySelectorAll(".markStatus");
+  console.log(markStatusClass)
   let completedTasksHTML = "";
   markStatusClass.forEach((element) => {
     let completedElement = element.nextElementSibling;
@@ -115,3 +116,5 @@ btnCompleted.addEventListener("click", () => {
   });
   list.innerHTML = completedTasksHTML;
 });
+
+
