@@ -24,10 +24,10 @@ input.addEventListener("keypress", (e) => {
       let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
       tasks.push(task);
       localStorage.setItem("tasks", JSON.stringify(tasks));
-      list.innerHTML += getItemLocalStorage(id, valueInput);
       id++;
       localStorage.setItem("id", id);
 
+      data();
       input.value = "";
       displayOptionList();
     }
@@ -37,56 +37,59 @@ function data() {
   let tasksFromLocalStorage = localStorage.getItem("tasks");
   let tasks = JSON.parse(tasksFromLocalStorage);
   if (tasksFromLocalStorage) {
-    for (let i = 0; i < tasks.length; i++) {
+    let html = "";
+    tasks.forEach((task, index) => {
+      console.log(task);
       let arr = localStorage.getItem("iconCheckId");
-      list.innerHTML += `
-      <li class="listDarkTheme">
-      <div id=${
-        tasks[i].id
-      } class="status statusDarkTheme statusDarkThemeHover ${
-        arr ? (arr.includes(tasks[i].id) ? "markStatus" : "") : ""
+      let listItemHTML = `
+        <li class="listDarkTheme">
+          <div id=${task.id} class="status statusDarkTheme statusDarkThemeHover ${
+        arr ? (arr.includes(task.id) ? "markStatus" : "") : ""
       }" onclick="markElement(this)"></div>
-        <div id=${tasks[i].id} class="toDo ${
-        arr ? (arr.includes(tasks[i].id) ? " markItemList" : "") : ""
-      }">${tasks[i].task}</div>
-        <div class="close" onclick="deleteElement(this.previousElementSibling)">
-          <img src="./icon-cross.svg" alt="iconCross" />
-        </div>
-      </li>
+          <div id=${task.id} class="toDo ${
+        arr ? (arr.includes(task.id) ? " markItemList" : "") : ""
+      }">${task.task}</div>
+          <div class="close" onclick="deleteElement( ${index})">
+            <img src="./icon-cross.svg" alt="iconCross" />
+          </div>
+        </li>
       `;
-    }
+      html += listItemHTML;
+    });
+    list.innerHTML = html;
   }
 }
+
+
 data();
-function getItemLocalStorage(id, element) {
-  let arr = localStorage.getItem("iconCheckId");
-  return `
-    <li class="listDarkTheme">
-    <div id=${id} class="status statusDarkTheme statusDarkThemeHover ${
-    arr ? (arr.includes(id) ? "markStatus" : "") : ""
-  }" onclick="markElement(this)"></div>
-      <div id=${id} class="toDo ${
-    arr ? (arr.includes(id) ? " markItemList" : "") : ""
-  }">${element}</div>
-      <div class="close" onclick="deleteElement(this.previousElementSibling)">
-        <img src="./icon-cross.svg" alt="iconCross" />
-      </div>
-    </li>
-    `;
-}
-function deleteElement(element) {
-  let elementId = element.id;
-  element.parentNode.remove();
-  displayOptionList();
-  let tasksFromLocalStorage = JSON.parse(localStorage.getItem("tasks")) || [];
-  tasksFromLocalStorage.splice(elementId, 1);
-  console.log(tasksFromLocalStorage);
-  console.log(elementId);
-  localStorage.setItem("tasks", JSON.stringify(tasksFromLocalStorage));
-  if (tasksFromLocalStorage.length === 0) {
-    localStorage.setItem("id", "0"); // Setăm id-ul la valoarea 0
-    id = 0;
-  }
+// function getItemLocalStorage(id, element) {
+//   let arr = localStorage.getItem("iconCheckId");
+//   return `
+//     <li class="listDarkTheme">
+//     <div id=${id} class="status statusDarkTheme statusDarkThemeHover ${
+//     arr ? (arr.includes(id) ? "markStatus" : "") : ""
+//   }" onclick="markElement(this)"></div>
+//       <div id=${id} class="toDo ${
+//     arr ? (arr.includes(id) ? " markItemList" : "") : ""
+//   }">${element}</div>
+//       <div class="close" onclick="deleteElement(this.previousElementSibling)">
+//         <img src="./icon-cross.svg" alt="iconCross" />
+//       </div>
+//     </li>
+//     `;
+// }
+function deleteElement(index) {
+  console.log(index)
+  // let elementId = element.id;
+  // element.parentNode.remove();
+  // displayOptionList();
+  // let tasksFromLocalStorage = JSON.parse(localStorage.getItem("tasks")) || [];
+  // tasksFromLocalStorage.splice(elementId, 1);
+  // localStorage.setItem("tasks", JSON.stringify(tasksFromLocalStorage));
+  // if (tasksFromLocalStorage.length === 0) {
+  //   localStorage.setItem("id", "0"); // Setăm id-ul la valoarea 0
+  //   id = 0;
+  // }
 }
 
 function displayOptionList() {
