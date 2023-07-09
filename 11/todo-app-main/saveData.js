@@ -16,25 +16,49 @@ input.addEventListener("keypress", (e) => {
     if (valueInput === "") {
       return;
     } else {
-      localStorage.setItem(id, input.value);
-      list.innerHTML += getItemLocalStorage(id);
+      const task = {
+        id: id,
+        task: valueInput,
+        status: "all",
+      };
+      let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+      tasks.push(task);
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+      list.innerHTML += getItemLocalStorage(id, valueInput);
       id++;
       localStorage.setItem("id", id);
+
       input.value = "";
       displayOptionList();
     }
   }
 });
-
 function data() {
-  for (let i = 0; i < id; i++) {
-    if (localStorage.getItem(i) !== null) {
-      list.innerHTML += getItemLocalStorage(i);
+  let tasksFromLocalStorage = localStorage.getItem("tasks");
+  let tasks = JSON.parse(tasksFromLocalStorage);
+  if (tasksFromLocalStorage) {
+    for (let i = 0; i < tasks.length; i++) {
+      let arr = localStorage.getItem("iconCheckId");
+      list.innerHTML += `
+      <li class="listDarkTheme">
+      <div id=${
+        tasks[i].id
+      } class="status statusDarkTheme statusDarkThemeHover ${
+        arr ? (arr.includes(tasks[i].id) ? "markStatus" : "") : ""
+      }" onclick="markElement(this)"></div>
+        <div id=${tasks[i].id} class="toDo ${
+        arr ? (arr.includes(tasks[i].id) ? " markItemList" : "") : ""
+      }">${tasks[i].task}</div>
+        <div class="close" onclick="deleteElement(this.previousElementSibling)">
+          <img src="./icon-cross.svg" alt="iconCross" />
+        </div>
+      </li>
+      `;
     }
   }
 }
 data();
-function getItemLocalStorage(id) {
+function getItemLocalStorage(id, element) {
   let arr = localStorage.getItem("iconCheckId");
   return `
     <li class="listDarkTheme">
@@ -43,20 +67,26 @@ function getItemLocalStorage(id) {
   }" onclick="markElement(this)"></div>
       <div id=${id} class="toDo ${
     arr ? (arr.includes(id) ? " markItemList" : "") : ""
-  }">${localStorage.getItem(id)}</div>
+  }">${element}</div>
       <div class="close" onclick="deleteElement(this.previousElementSibling)">
         <img src="./icon-cross.svg" alt="iconCross" />
       </div>
     </li>
     `;
 }
-
 function deleteElement(element) {
+  let elementId = element.id;
   element.parentNode.remove();
-  let prevElem = element.id;
-  localStorage.removeItem(prevElem);
-  li = document.querySelectorAll("li");
   displayOptionList();
+  let tasksFromLocalStorage = JSON.parse(localStorage.getItem("tasks")) || [];
+  tasksFromLocalStorage.splice(elementId, 1);
+  console.log(tasksFromLocalStorage);
+  console.log(elementId);
+  localStorage.setItem("tasks", JSON.stringify(tasksFromLocalStorage));
+  if (tasksFromLocalStorage.length === 0) {
+    localStorage.setItem("id", "0"); // Setăm id-ul la valoarea 0
+    id = 0;
+  }
 }
 
 function displayOptionList() {
@@ -72,14 +102,16 @@ function displayOptionList() {
   }
 }
 displayOptionList();
-
+/*
 btnAll.addEventListener("click", () => {
   list.innerHTML = "";
   data();
 });
 
 btnActive.addEventListener("click", () => {
-  const elementsWithoutMarkStatus = document.querySelectorAll(".status:not(.markStatus)");
+  const elementsWithoutMarkStatus = document.querySelectorAll(
+    ".status:not(.markStatus)"
+  );
   let activeTasksHTML = "";
   elementsWithoutMarkStatus.forEach((element) => {
     let activeElement = element.nextElementSibling;
@@ -99,7 +131,7 @@ btnActive.addEventListener("click", () => {
 
 btnCompleted.addEventListener("click", () => {
   const markStatusClass = document.querySelectorAll(".markStatus");
-  console.log(markStatusClass)
+  console.log(markStatusClass);
   let completedTasksHTML = "";
   markStatusClass.forEach((element) => {
     let completedElement = element.nextElementSibling;
@@ -116,5 +148,4 @@ btnCompleted.addEventListener("click", () => {
   });
   list.innerHTML = completedTasksHTML;
 });
-
-
+*/

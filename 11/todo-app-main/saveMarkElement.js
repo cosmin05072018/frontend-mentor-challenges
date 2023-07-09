@@ -8,6 +8,7 @@ function displayCheck(element) {
 }
 
 function markElement(mark) {
+  let idElement = mark.nextElementSibling.id //aici avem id ul elementului pe care dam click
   mark.classList.toggle("markStatus");
   mark.nextElementSibling.classList.toggle("markItemList");
   let arr;
