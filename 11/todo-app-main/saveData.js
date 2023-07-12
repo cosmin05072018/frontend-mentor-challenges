@@ -4,6 +4,7 @@ const btnAll = document.querySelector(".all");
 const btnActive = document.querySelector(".active");
 const btnCompleted = document.querySelector(".completed");
 const statusItems = document.querySelector(".status");
+const listAll = document.querySelector(".listItems ");
 let id = parseInt(localStorage.getItem("id")) || 0;
 
 input.addEventListener("click", () => {
@@ -30,6 +31,8 @@ input.addEventListener("keypress", (e) => {
       data();
       input.value = "";
       displayOptionList();
+      listAll.classList.remove("hiddenClass");
+      
     }
   }
 });
@@ -43,13 +46,15 @@ function data() {
       let arr = localStorage.getItem("iconCheckId");
       let listItemHTML = `
         <li class="listDarkTheme">
-          <div id=${task.id} class="status statusDarkTheme statusDarkThemeHover ${
+          <div id=${
+            task.id
+          } class="status statusDarkTheme statusDarkThemeHover ${
         arr ? (arr.includes(task.id) ? "markStatus" : "") : ""
       }" onclick="markElement(this)"></div>
           <div id=${task.id} class="toDo ${
         arr ? (arr.includes(task.id) ? " markItemList" : "") : ""
       }">${task.task}</div>
-          <div class="close" onclick="deleteElement( ${index})">
+          <div class="close" onclick="deleteElement(${index})">
             <img src="./icon-cross.svg" alt="iconCross" />
           </div>
         </li>
@@ -59,7 +64,6 @@ function data() {
     list.innerHTML = html;
   }
 }
-
 
 data();
 // function getItemLocalStorage(id, element) {
@@ -79,17 +83,16 @@ data();
 //     `;
 // }
 function deleteElement(index) {
-  console.log(index)
-  // let elementId = element.id;
-  // element.parentNode.remove();
-  // displayOptionList();
-  // let tasksFromLocalStorage = JSON.parse(localStorage.getItem("tasks")) || [];
-  // tasksFromLocalStorage.splice(elementId, 1);
-  // localStorage.setItem("tasks", JSON.stringify(tasksFromLocalStorage));
-  // if (tasksFromLocalStorage.length === 0) {
-  //   localStorage.setItem("id", "0"); // Setăm id-ul la valoarea 0
-  //   id = 0;
-  // }
+  displayOptionList();
+  let tasksFromLocalStorage = JSON.parse(localStorage.getItem("tasks")) || [];
+  tasksFromLocalStorage.splice(index, 1);
+  localStorage.setItem("tasks", JSON.stringify(tasksFromLocalStorage));
+  if (tasksFromLocalStorage.length === 0) {
+    localStorage.setItem("id", "0");
+    id = 0;
+    listAll.classList.add("hiddenClass");
+  }
+  data();
 }
 
 function displayOptionList() {
