@@ -3,9 +3,11 @@ const list = document.querySelector(".list");
 const btnAll = document.querySelector(".all");
 const btnActive = document.querySelector(".active");
 const btnCompleted = document.querySelector(".completed");
-const statusItems = document.querySelector(".status");
 const listAll = document.querySelector(".listItems ");
+const clearBtn = document.querySelector(".clear");
 let id = parseInt(localStorage.getItem("id")) || 0;
+let tasksFromLocalStorage = JSON.parse(localStorage.getItem("tasks")) || [];
+let idMark;
 
 input.addEventListener("click", () => {
   input.value = "";
@@ -27,12 +29,12 @@ input.addEventListener("keypress", (e) => {
       localStorage.setItem("tasks", JSON.stringify(tasks));
       id++;
       localStorage.setItem("id", id);
-
+      tasksFromLocalStorage = tasks; //actualizam in timp real
       data();
-      input.value = "";
+      statusCheck();
       displayOptionList();
+      input.value = "";
       listAll.classList.remove("hiddenClass");
-      
     }
   }
 });
@@ -66,33 +68,21 @@ function data() {
 }
 
 data();
-// function getItemLocalStorage(id, element) {
-//   let arr = localStorage.getItem("iconCheckId");
-//   return `
-//     <li class="listDarkTheme">
-//     <div id=${id} class="status statusDarkTheme statusDarkThemeHover ${
-//     arr ? (arr.includes(id) ? "markStatus" : "") : ""
-//   }" onclick="markElement(this)"></div>
-//       <div id=${id} class="toDo ${
-//     arr ? (arr.includes(id) ? " markItemList" : "") : ""
-//   }">${element}</div>
-//       <div class="close" onclick="deleteElement(this.previousElementSibling)">
-//         <img src="./icon-cross.svg" alt="iconCross" />
-//       </div>
-//     </li>
-//     `;
-// }
+
 function deleteElement(index) {
   displayOptionList();
   let tasksFromLocalStorage = JSON.parse(localStorage.getItem("tasks")) || [];
   tasksFromLocalStorage.splice(index, 1);
   localStorage.setItem("tasks", JSON.stringify(tasksFromLocalStorage));
+  statusCheck();
   if (tasksFromLocalStorage.length === 0) {
     localStorage.setItem("id", "0");
     id = 0;
     listAll.classList.add("hiddenClass");
   }
+  tasksFromLocalStorage = JSON.parse(localStorage.getItem("tasks")) || []; //actualizam
   data();
+  statusCheck();
 }
 
 function displayOptionList() {
@@ -112,46 +102,97 @@ displayOptionList();
 btnAll.addEventListener("click", () => {
   list.innerHTML = "";
   data();
+  statusCheck();
 });
 
 btnActive.addEventListener("click", () => {
-  const elementsWithoutMarkStatus = document.querySelectorAll(
-    ".status:not(.markStatus)"
-  );
-  let activeTasksHTML = "";
-  elementsWithoutMarkStatus.forEach((element) => {
-    let activeElement = element.nextElementSibling;
-    let activeTask = activeElement.textContent;
-    activeTasksHTML += `
-      <li class="listDarkTheme">
-        <div class="status statusDarkTheme statusDarkThemeHover"></div>
-        <div class="toDo">${activeTask}</div>
-        <div class="close">
-          <img src="./icon-cross.svg" alt="iconCross" />
-        </div>
-      </li>
-    `;
-  });
-  list.innerHTML = activeTasksHTML;
-});
-
-btnCompleted.addEventListener("click", () => {
-  const markStatusClass = document.querySelectorAll(".markStatus");
-  console.log(markStatusClass);
   let completedTasksHTML = "";
-  markStatusClass.forEach((element) => {
-    let completedElement = element.nextElementSibling;
-    let completedTask = completedElement.textContent;
-    completedTasksHTML += `
+  tasksFromLocalStorage.forEach((element) => {
+    if (element.status === "all") {
+      completedTasksHTML += `
       <li class="listDarkTheme">
-        <div class="status statusDarkTheme statusDarkThemeHover markStatus"></div>
-        <div class="toDo markItemList">${completedTask}</div>
-        <div class="close">
-          <img src="./icon-cross.svg" alt="iconCross" />
-        </div>
-      </li>
-    `;
+         <div class="status statusDarkTheme statusDarkThemeHover "></div>
+         <div class="toDo ">${element.task}</div>
+         <div class="close">
+           <img src="./icon-cross.svg" alt="iconCross" />
+         </div>
+       </li>
+     `;
+    }
   });
   list.innerHTML = completedTasksHTML;
 });
 
+btnCompleted.addEventListener("click", () => {
+  tasksFromLocalStorage = JSON.parse(localStorage.getItem("tasks")) || [];
+  let completedTasksHTML = "";
+  tasksFromLocalStorage.forEach((element) => {
+    if (element.status == "markTask") {
+      completedTasksHTML += `
+        <li class="listDarkTheme">
+           <div class="status statusDarkTheme statusDarkThemeHover markStatus"></div>
+           <div class="toDo markItemList">${element.task}</div>
+           <div class="close">
+             <img src="./icon-cross.svg" alt="iconCross" />
+           </div>
+         </li>
+       `;
+    }
+  });
+  list.innerHTML = completedTasksHTML;
+  statusCheck();
+});
+
+clearBtn.addEventListener("click", () => {
+  console.log("clear");
+});
+
+function displayCheck(element) {
+  if (element.classList.contains("markStatus")) {
+    element.innerHTML = `<img src="./icon-check.svg" alt="iconCheck" />`;
+
+    tasksFromLocalStorage.map((element) => {
+      if (element.id == idMark) {
+        element.status = "markTask";
+        localStorage.setItem("tasks", JSON.stringify(tasksFromLocalStorage));
+      }
+    });
+  } else {
+    element.innerHTML = "";
+    tasksFromLocalStorage.map((element) => {
+      if (element.id == idMark) {
+        element.status = "all";
+        localStorage.setItem("tasks", JSON.stringify(tasksFromLocalStorage));
+      }
+    });
+  }
+}
+
+function markElement(mark) {
+  idMark = mark.id;
+  mark.classList.toggle("markStatus");
+  mark.nextElementSibling.classList.toggle("markItemList");
+  let arr;
+  let iconCheckFromLocalStorage = localStorage.getItem("iconCheckId");
+  if (iconCheckFromLocalStorage) {
+    arr = JSON.parse(iconCheckFromLocalStorage);
+  } else {
+    arr = [];
+  }
+  if (arr.includes(idMark)) {
+    let index = arr.indexOf(idMark);
+    arr.splice(index, 1);
+  } else {
+    arr.push(idMark);
+  }
+  localStorage.setItem("iconCheckId", JSON.stringify(arr));
+  displayCheck(mark); //actualizam in timp real
+}
+
+function statusCheck() {
+  let statusElements = document.querySelectorAll(".status");
+  statusElements.forEach((element) => {
+    displayCheck(element);
+  });
+}
+statusCheck();
