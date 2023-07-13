@@ -108,7 +108,7 @@ function displayOptionList() {
   }
 }
 displayOptionList();
-/*
+
 btnAll.addEventListener("click", () => {
   list.innerHTML = "";
   data();
@@ -154,4 +154,4 @@ btnCompleted.addEventListener("click", () => {
   });
   list.innerHTML = completedTasksHTML;
 });
-*/
+
