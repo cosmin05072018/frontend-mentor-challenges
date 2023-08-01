@@ -156,9 +156,19 @@
   font-weight: 400;
 }
 
+.noFound{
+  padding: 20px 12px;
+  font-weight: 400;
+}
+
+
 .listDarkTheme {
-  border-bottom: 1px solid var(--VeryDarkGrayishBlueTwo);
   color: var(--LightGrayishBlue);
+  border-bottom: 1px solid var(--VeryDarkGrayishBlueTwo);
+}
+
+.listDarkTheme:last-child {
+  border-bottom: none;
 }
 
 .listLightTheme {

@@ -1,0 +1,3 @@
+renuntam la filtrare pentru ca e foarte complex
+
+VOM FACE ASA: AFISAM DOAR CATE TASKURI AVEM SI BUTON DE STERGERE  A CELOR MARCATE ALL

@@ -11,7 +11,7 @@ const all = document.querySelector(".all");
 const active = document.querySelector(".active");
 const completed = document.querySelector(".completed");
 const clearCompletedDarkTheme = document.querySelector(".clear");
-let optionList = [all, active, completed, clearCompletedDarkTheme];
+// let optionList = [all, active, completed, clearCompletedDarkTheme];
 
 // trebuie sa salvam si icon-ul pentru soare si luna, de asta nu functioneaza cum trebuie
 // hiddenClass
@@ -69,10 +69,10 @@ function lightTheme() {
     removeClass(li, "listDarkTheme");
     addClass(li, "listLightTheme");
   });
-  for (let i = 0; i < optionList.length; i++) {
-    removeClass(optionList[i], "hoverDarkTheme");
-    addClass(optionList[i], "hoverLightTheme");
-  }
+  // for (let i = 0; i < optionList.length; i++) {
+  //   removeClass(optionList[i], "hoverDarkTheme");
+  //   addClass(optionList[i], "hoverLightTheme");
+  // }
 }
 
 function darkTheme() {
@@ -94,10 +94,10 @@ function darkTheme() {
     addClass(li, "listDarkTheme");
     removeClass(li, "listLightTheme");
   });
-  for (let i = 0; i < optionList.length; i++) {
-    addClass(optionList[i], "hoverDarkTheme");
-    removeClass(optionList[i], "hoverLightTheme");
-  }
+  // for (let i = 0; i < optionList.length; i++) {
+  //   addClass(optionList[i], "hoverDarkTheme");
+  //   removeClass(optionList[i], "hoverLightTheme");
+  // }
 }
 
 function addClass(element, className) {
@@ -108,16 +108,16 @@ function removeClass(element, className) {
   element.classList.remove(className);
 }
 
-function activeOptionList() {
-  for (let i = 0; i < optionList.length - 1; i++) {
-    optionList[i].addEventListener("click", () => {
-      for (let j = 0; j < optionList.length; j++) {
-        optionList[j].classList.remove("activeClass");
-      }
-      optionList[i].classList.add("activeClass");
-    });
-  }
-}
+// function activeOptionList() {
+//   for (let i = 0; i < optionList.length - 1; i++) {
+//     optionList[i].addEventListener("click", () => {
+//       for (let j = 0; j < optionList.length; j++) {
+//         optionList[j].classList.remove("activeClass");
+//       }
+//       optionList[i].classList.add("activeClass");
+//     });
+//   }
+// }
 
-activeOptionList();
+// activeOptionList();
 
