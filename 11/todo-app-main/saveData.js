@@ -70,10 +70,41 @@ function data() {
 
 data();
 
+function markElement(mark) {
+  idMark = mark.id;
+  mark.classList.toggle("markStatus");
+  mark.nextElementSibling.classList.toggle("markItemList");
+  let arr;
+  let iconCheckFromLocalStorage = localStorage.getItem("iconCheckId");
+  if (iconCheckFromLocalStorage) {
+    arr = JSON.parse(iconCheckFromLocalStorage);
+  } else {
+    arr = [];
+  }
+  if (arr.includes(idMark)) {
+    let index = arr.indexOf(idMark);
+    arr.splice(index, 1);
+  } else {
+    arr.push(idMark);
+  }
+  localStorage.setItem("iconCheckId", JSON.stringify(arr));
+  displayCheck(mark); //actualizam in timp real
+}
+
 function deleteElement(index) {
+  
+  // let iconCheckFromLocalStorage =
+  //   JSON.parse(localStorage.getItem("iconCheckId")) || [];
+  // iconCheckFromLocalStorage.splice(index, 1);
+  // localStorage.setItem(
+  //   "iconCheckId",
+  //   JSON.stringify(iconCheckFromLocalStorage)
+  // );
+
   let tasksFromLocalStorage = JSON.parse(localStorage.getItem("tasks")) || [];
   tasksFromLocalStorage.splice(index, 1);
   localStorage.setItem("tasks", JSON.stringify(tasksFromLocalStorage));
+
   statusCheck();
   if (tasksFromLocalStorage.length === 0) {
     localStorage.setItem("id", "0");
@@ -173,6 +204,13 @@ btnCompleted.addEventListener("click", () => {
 clearBtn.addEventListener("click", () => {
   tasksFromLocalStorage = JSON.parse(localStorage.getItem("tasks")) || [];
   let clearTaskMark = tasksFromLocalStorage.filter((element) => {
+    let iconCheckFromLocalStorage =
+      JSON.parse(localStorage.getItem("iconCheckId")) || [];
+    iconCheckFromLocalStorage.splice(element, 1);
+    localStorage.setItem(
+      "iconCheckId",
+      JSON.stringify(iconCheckFromLocalStorage)
+    );
     return element.status !== "markTask";
   });
   localStorage.setItem("tasks", JSON.stringify(clearTaskMark));
@@ -181,7 +219,6 @@ clearBtn.addEventListener("click", () => {
   statusCheck();
   displayOptionList();
 });
-
 
 function displayCheck(element) {
   if (element.classList.contains("markStatus")) {
@@ -202,27 +239,6 @@ function displayCheck(element) {
       }
     });
   }
-}
-
-function markElement(mark) {
-  idMark = mark.id;
-  mark.classList.toggle("markStatus");
-  mark.nextElementSibling.classList.toggle("markItemList");
-  let arr;
-  let iconCheckFromLocalStorage = localStorage.getItem("iconCheckId");
-  if (iconCheckFromLocalStorage) {
-    arr = JSON.parse(iconCheckFromLocalStorage);
-  } else {
-    arr = [];
-  }
-  if (arr.includes(idMark)) {
-    let index = arr.indexOf(idMark);
-    arr.splice(index, 1);
-  } else {
-    arr.push(idMark);
-  }
-  localStorage.setItem("iconCheckId", JSON.stringify(arr));
-  displayCheck(mark); //actualizam in timp real
 }
 
 function statusCheck() {

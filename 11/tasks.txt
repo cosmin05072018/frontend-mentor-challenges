@@ -1,3 +1,32 @@
 renuntam la filtrare pentru ca e foarte complex
 
 VOM FACE ASA: AFISAM DOAR CATE TASKURI AVEM SI BUTON DE STERGERE  A CELOR MARCATE ALL
+
+
+function deleteElement(index) {
+  IN CODUL COMPLETAT AVEM PROBLEME
+  // let iconCheckFromLocalStorage =
+  //   JSON.parse(localStorage.getItem("iconCheckId")) || [];
+  // iconCheckFromLocalStorage.splice(index, 1);
+  // localStorage.setItem(
+  //   "iconCheckId",
+  //   JSON.stringify(iconCheckFromLocalStorage)
+  // );
+
+  let tasksFromLocalStorage = JSON.parse(localStorage.getItem("tasks")) || [];
+  tasksFromLocalStorage.splice(index, 1);
+  localStorage.setItem("tasks", JSON.stringify(tasksFromLocalStorage));
+
+  statusCheck();
+  if (tasksFromLocalStorage.length === 0) {
+    localStorage.setItem("id", "0");
+    id = 0;
+    listAll.classList.add("hiddenClass");
+  }
+  tasksFromLocalStorage = JSON.parse(localStorage.getItem("tasks")) || []; //actualizam
+  data();
+  statusCheck();
+  displayOptionList();
+}
+
+
