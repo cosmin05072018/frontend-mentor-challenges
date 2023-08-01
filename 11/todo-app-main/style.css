@@ -167,9 +167,9 @@
   border-bottom: 1px solid var(--VeryDarkGrayishBlueTwo);
 }
 
-.listDarkTheme:last-child {
+/* .listDarkTheme:last-child {
   border-bottom: none;
-}
+} */
 
 .listLightTheme {
   border-bottom: 1px solid var(--veryLightGrayishBlue);

@@ -33,7 +33,7 @@ input.addEventListener("keypress", (e) => {
       tasksFromLocalStorage = tasks; //actualizam in timp real
       data();
       statusCheck();
-      // displayOptionList();
+      displayOptionList();
       input.value = "";
       listAll.classList.remove("hiddenClass");
     }
@@ -71,7 +71,6 @@ function data() {
 data();
 
 function deleteElement(index) {
-  // displayOptionList();
   let tasksFromLocalStorage = JSON.parse(localStorage.getItem("tasks")) || [];
   tasksFromLocalStorage.splice(index, 1);
   localStorage.setItem("tasks", JSON.stringify(tasksFromLocalStorage));
@@ -84,102 +83,105 @@ function deleteElement(index) {
   tasksFromLocalStorage = JSON.parse(localStorage.getItem("tasks")) || []; //actualizam
   data();
   statusCheck();
+  displayOptionList();
 }
 
-// function displayOptionList() {
-//   li = document.querySelectorAll("li");
-//   let numberList = document.querySelector(".numberList");
-//   numberList.innerHTML = li.length;
-//   let lenghtList = li.length;
-//   let optionList = document.querySelector(".optionList");
-//   if (lenghtList > 0) {
-//     optionList.classList.remove("hiddenClass");
-//   } else {
-//     optionList.classList.add("hiddenClass");
-//   }
-// }
-// displayOptionList();
+function displayOptionList() {
+  li = document.querySelectorAll("li");
+  let numberList = document.querySelector(".numberList");
+  numberList.innerHTML = li.length;
+  let lenghtList = li.length;
+  let optionList = document.querySelector(".optionList");
+  if (lenghtList > 0) {
+    optionList.classList.remove("hiddenClass");
+  } else {
+    optionList.classList.add("hiddenClass");
+  }
+}
+displayOptionList();
 
-// btnAll.addEventListener("click", () => {
-//   list.innerHTML = "";
-//   let tasksFromLocalStorage = localStorage.getItem("tasks");
-//   let tasks = JSON.parse(tasksFromLocalStorage);
-//   if (tasksFromLocalStorage) {
-//     let html = "";
-//     tasks.forEach((task, index) => {
-//       console.log(task);
-//       let arr = localStorage.getItem("iconCheckId");
-//       let listItemHTML = `
-//         <li class="listDarkTheme">
-//           <div id=${
-//             task.id
-//           } class="status statusDarkTheme statusDarkThemeHover ${
-//         arr ? (arr.includes(task.id) ? "markStatus" : "") : ""
-//       }" onclick="markElement(this)"></div>
-//           <div id=${task.id} class="toDo ${
-//         arr ? (arr.includes(task.id) ? " markItemList" : "") : ""
-//       }">${task.task}</div>
-//           <div class="close" onclick="deleteElement(${index})">
-//             <img src="./icon-cross.svg" alt="iconCross" />
-//           </div>
-//         </li>
-//       `;
-//       html += listItemHTML;
-//     });
-//     list.innerHTML = html;
-//   }
-//   statusCheck();
-// });
+/*
+btnAll.addEventListener("click", () => {
+  list.innerHTML = "";
+  let tasksFromLocalStorage = localStorage.getItem("tasks");
+  let tasks = JSON.parse(tasksFromLocalStorage);
+  if (tasksFromLocalStorage) {
+    let html = "";
+    tasks.forEach((task, index) => {
+      console.log(task);
+      let arr = localStorage.getItem("iconCheckId");
+      let listItemHTML = `
+        <li class="listDarkTheme">
+          <div id=${
+            task.id
+          } class="status statusDarkTheme statusDarkThemeHover ${
+        arr ? (arr.includes(task.id) ? "markStatus" : "") : ""
+      }" onclick="markElement(this)"></div>
+          <div id=${task.id} class="toDo ${
+        arr ? (arr.includes(task.id) ? " markItemList" : "") : ""
+      }">${task.task}</div>
+          <div class="close" onclick="deleteElement(${index})">
+            <img src="./icon-cross.svg" alt="iconCross" />
+          </div>
+        </li>
+      `;
+      html += listItemHTML;
+    });
+    list.innerHTML = html;
+  }
+  statusCheck();
+});
 
-// btnActive.addEventListener("click", () => {
-//   let completedTasksHTML = "";
-//   tasksFromLocalStorage.forEach((element) => {
-//     if (element.status === "all") {
-//       completedTasksHTML += `
-//       <li class="listDarkTheme">
-//          <div class="status statusDarkTheme statusDarkThemeHover "></div>
-//          <div class="toDo ">${element.task}</div>
-//          <div class="close">
-//            <img src="./icon-cross.svg" alt="iconCross" />
-//          </div>
-//        </li>
-//      `;
-//     }
-//   });
-//   list.innerHTML = completedTasksHTML;
-// });
+btnActive.addEventListener("click", () => {
+  let completedTasksHTML = "";
+  tasksFromLocalStorage.forEach((element) => {
+    if (element.status === "all") {
+      completedTasksHTML += `
+      <li class="listDarkTheme">
+         <div class="status statusDarkTheme statusDarkThemeHover "></div>
+         <div class="toDo ">${element.task}</div>
+         <div class="close">
+           <img src="./icon-cross.svg" alt="iconCross" />
+         </div>
+       </li>
+     `;
+    }
+  });
+  list.innerHTML = completedTasksHTML;
+});
 
-// btnCompleted.addEventListener("click", () => {
-//   tasksFromLocalStorage = JSON.parse(localStorage.getItem("tasks")) || [];
-//   let completedTasksHTML = "";
-//   tasksFromLocalStorage.forEach((element) => {
-//     if (element.status == "markTask") {
-//       completedTasksHTML += `
-//         <li class="listDarkTheme">
-//            <div class="status statusDarkTheme statusDarkThemeHover markStatus"></div>
-//            <div class="toDo markItemList">${element.task}</div>
-//            <div class="close">
-//              <img src="./icon-cross.svg" alt="iconCross" />
-//            </div>
-//          </li>
-//        `;
-//     }
-//   });
-//   list.innerHTML = completedTasksHTML;
-//   statusCheck();
-// });
+btnCompleted.addEventListener("click", () => {
+  tasksFromLocalStorage = JSON.parse(localStorage.getItem("tasks")) || [];
+  let completedTasksHTML = "";
+  tasksFromLocalStorage.forEach((element) => {
+    if (element.status == "markTask") {
+      completedTasksHTML += `
+        <li class="listDarkTheme">
+           <div class="status statusDarkTheme statusDarkThemeHover markStatus"></div>
+           <div class="toDo markItemList">${element.task}</div>
+           <div class="close">
+             <img src="./icon-cross.svg" alt="iconCross" />
+           </div>
+         </li>
+       `;
+    }
+  });
+  list.innerHTML = completedTasksHTML;
+  statusCheck();
+});
+*/
+clearBtn.addEventListener("click", () => {
+  tasksFromLocalStorage = JSON.parse(localStorage.getItem("tasks")) || [];
+  let clearTaskMark = tasksFromLocalStorage.filter((element) => {
+    return element.status !== "markTask";
+  });
+  localStorage.setItem("tasks", JSON.stringify(clearTaskMark));
+  tasksFromLocalStorage = clearTaskMark;
+  data();
+  statusCheck();
+  displayOptionList();
+});
 
-// clearBtn.addEventListener("click", () => {
-//   tasksFromLocalStorage = JSON.parse(localStorage.getItem("tasks")) || [];
-//   let clearTaskMark = tasksFromLocalStorage.filter((element) => {
-//     return element.status !== "markTask";
-//   });
-//   localStorage.setItem("tasks", JSON.stringify(clearTaskMark));
-//   tasksFromLocalStorage = clearTaskMark;
-//   data();
-//   statusCheck();
-//   // displayOptionList();
-// });
 
 function displayCheck(element) {
   if (element.classList.contains("markStatus")) {
