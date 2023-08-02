@@ -92,28 +92,16 @@ function markElement(mark) {
 }
 
 function deleteElement(index) {
-  
-  // let iconCheckFromLocalStorage =
-  //   JSON.parse(localStorage.getItem("iconCheckId")) || [];
-  // iconCheckFromLocalStorage.splice(index, 1);
-  // localStorage.setItem(
-  //   "iconCheckId",
-  //   JSON.stringify(iconCheckFromLocalStorage)
-  // );
-
-  let tasksFromLocalStorage = JSON.parse(localStorage.getItem("tasks")) || [];
-  tasksFromLocalStorage.splice(index, 1);
-  localStorage.setItem("tasks", JSON.stringify(tasksFromLocalStorage));
-
-  statusCheck();
+  let itemFromTasksLocalStorage =
+    JSON.parse(localStorage.getItem("tasks")) || [];
+  itemFromTasksLocalStorage.splice(index, 1);
+  localStorage.setItem("tasks", JSON.stringify(itemFromTasksLocalStorage));
   if (tasksFromLocalStorage.length === 0) {
     localStorage.setItem("id", "0");
     id = 0;
     listAll.classList.add("hiddenClass");
   }
-  tasksFromLocalStorage = JSON.parse(localStorage.getItem("tasks")) || []; //actualizam
   data();
-  statusCheck();
   displayOptionList();
 }
 
